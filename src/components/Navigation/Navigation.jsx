@@ -9,28 +9,28 @@ const Navigation = () => {
             <span></span><span></span><span></span>
             <ul className="menu-nav"> 
                 <li className="no-list"> 
-                    <a href="pages/product.html" className="btn-link" role="button">
+                    <a href="#" className="btn-link" role="button">
                         <button className="button-icon text-uppercase nav-icon cp">Products
                             <i className="bi bi-basket"></i>
                         </button>
                     </a>
                 </li>
                 <li className="no-list">
-                    <a href="pages/cart.html" className="btn-link" role="button">
+                    <a href="#" className="btn-link" role="button">
                         <button className="button-icon text-uppercase nav-icon cp">Cart
                             <i className="bi bi-cart"></i>
                         </button>
                     </a>
                 </li>
                 <li className="no-list"> 
-                    <a href="pages/pages/wishlist.html" className="btn-link" role="button">
+                    <a href="#" className="btn-link" role="button">
                         <button className="button-icon text-uppercase nav-icon cp">Wishlist
                             <i className="bi bi-heart"></i>
                         </button>
                     </a>
                 </li>
                 <li className="no-list"> 
-                    <a href="pages/login.html" className="btn-link td" role="button">
+                    <a href="#" className="btn-link td" role="button">
                         <button className="button-icon text-uppercase nav-icon cp">Logout
                             <i className="bi bi-door-closed"></i>
                         </button>
@@ -39,7 +39,7 @@ const Navigation = () => {
             </ul>
        </div>  
         <div className="header-logo nav-title">
-            <a href="index.html" className="btn-link td header-logo">
+            <a href="#" className="btn-link td header-logo">
                 <img className="avatar avatar-md" alt="Logo" src={logo}/>
                 <h1 className="heading1 medium brand-name">
                     वयन
@@ -55,7 +55,7 @@ const Navigation = () => {
             <nav className="icon-section">
                 <ul>
                     <li>
-                        <a href="pages/cart.html" className="btn-link" role="button">
+                        <a href="#" className="btn-link" role="button">
                             <button className="button-icon nav-icon cp">
                                 <i className="bi bi-cart"></i>
                                 <span className="textButtonBadge nav-icon-badge">9</span>
@@ -63,7 +63,7 @@ const Navigation = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="pages/wishlist.html" className="btn-link" role="button">
+                        <a href="#" className="btn-link" role="button">
                             <button className="button-icon nav-icon cp">
                                 <i className="bi bi-heart"></i>
                                 <span className="textButtonBadge nav-icon-badge">9</span>
