@@ -1,0 +1,120 @@
+.header-logo{
+    display: flex;
+    align-items: center;
+}
+
+.mobile-avatar{
+    display: none;
+}
+
+.brand-name{
+    font-family: var(--site-name-font);
+    color: var(--primary-colour);
+}
+
+.header-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.icon-section {
+    height: 4rem;
+    padding: 0.8rem;
+}
+  
+.header-nav li {
+    display: inline-block;
+    width: 5rem;
+    text-align: center;
+}
+
+.text-link {
+    color:var(--black);
+    text-decoration: none;
+    margin: 0.8rem;
+}  
+
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 8rem;
+}
+
+.login-sign{
+    background: var(--body-bg);
+}
+
+.dropdown-intial{
+    display: none;
+}
+
+.dropdown-menu{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    transform: translate(0px, 55px);
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    background-color: var(--tertiary-colour);
+    border: 1px solid var( --btn-link);
+    border-radius: 4px;
+}
+
+.nav-icon {
+    font-size: 2.5rem;
+}
+
+.nav-icon-badge {
+    font-size: 1.3rem;
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.input-pos {
+    margin-left: auto;
+}
+
+.inp-border{
+    border: 1px solid var(--input-box);
+}
+
+.input-width {
+    width: 50rem;
+    border-right: 0;
+    height: 3.2rem;
+    padding: unset;
+    padding-inline-end: 1.6rem;
+    padding-inline-start: 1.6rem;
+    line-height: 2.4rem;
+    font-size: 1.6rem;
+}
+
+.menu-nav{
+    margin-top: -3rem;
+    background-color: var(--success-background);
+}
+
+@media only screen and (max-width: 1200px) {
+    .input-width{
+        width: unset;
+    }
+
+    .input-pos{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-avatar{
+        display: inline-flex;
+    }
+
+    .nav-icon {
+        padding: 1.5rem 4rem;
+        color: var(--nav-colour);
+    }
+}
