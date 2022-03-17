@@ -1,2 +1,28 @@
 @import url("https://threadui.netlify.app/components/component.css");
-                    
+@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+          
+
+:root{
+    --body-bg:#f8f8ffd9;
+    --btn-hover:#e26c6ea6;
+    --input-box:#00000047;
+    --nav-colour:#3d556c;
+    --box-shadow: #0000000d;
+    --delete-btn: #f88484;
+    --wishlist-shadow:#00000080;
+
+    --site-name-font: 'Dekko', cursive;
+}
+
+body{
+    background-color: var(--body-bg);
+}
+
+main{
+    min-height:calc( 100vh - 64px );
+}
+
+.main-container{
+    padding: 1.5rem 2rem;
+}
