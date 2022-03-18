@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { linkNames } from "../../data";
 
 const ShowDropdown = () => {
@@ -30,12 +31,13 @@ const NavLinks = () => {
                 <ul>
                     {linkNames.map((linkValue) => (
                         <li key={linkValue.id}>
-                        <a href="#" className="btn-link" role="button">
+                        <Link to={linkValue.route} className="btn-link" role="button">
                             <button className="button-icon nav-icon cp">
                                 <i className={linkValue.icon}></i>
-                                <span className="textButtonBadge nav-icon-badge">9</span>
+                                { linkValue.badgePresent 
+                                ? <span className="textButtonBadge nav-icon-badge">{linkValue.badgeValue}</span> : ''}
                             </button>
-                        </a>
+                        </Link>
                     </li>
                     ))}
                 </ul>

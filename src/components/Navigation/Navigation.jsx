@@ -2,18 +2,19 @@ import './nav.css';
 import logo from '../../asset/image/logo.svg'
 import { MobileNavigation } from './MobileNavigation';
 import { NavLinks } from './NavLinks';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     return(
         <header className="nav-header header">
         <MobileNavigation/>
         <div className="header-logo nav-title">
-            <a href="#" className="btn-link td header-logo">
+            <Link to={'/'} className="btn-link td header-logo">
                 <img className="avatar avatar-md" alt="Logo" src={logo}/>
                 <h1 className="heading1 medium brand-name">
                     वयन
                 </h1>
-            </a>   
+            </Link>   
         </div>
         <div className="avatar avatar-text text-md mobile-avatar">RL</div>       
         <form className="input-grp input-pos" id="searchform">
