@@ -1,0 +1,58 @@
+const Images = {
+	categoryAccessory: require('./category-images/accessories.jfif').default,
+	categoryCloth: require('./category-images/cloth.jfif').default,
+    categoryDesign: require('./category-images/design.jfif').default,
+    categoryMachine: require('./category-images/machine.jfif').default,
+    categoryTools: require('./category-images/tools.png').default,
+
+    landingPageImage: require('./design.jfif').default,
+
+    product1: require('./product-images/clothing (1).jfif').default,
+    product2: require('./product-images/clothing (2).jfif').default,
+    product3: require('./product-images/clothing (3).jfif').default,
+    product4: require('./product-images/clothing (4).jfif').default,
+    product5: require('./product-images/clothing (5).jfif').default,
+    product6: require('./product-images/clothing (1).png').default,
+    product7: require('./product-images/clothing (6).jfif').default,
+    product8: require('./product-images/clothing (7).jfif').default,
+
+    product9: require('./product-images/setofthreads.jpg').default,
+    product10: require('./product-images/setofthreads1.png').default,
+    product11: require('./product-images/setofthreads2.png').default,
+    product12: require('./product-images/hoop.png').default,
+    product13: require('./product-images/hoop1.jpg').default,
+    product14: require('./product-images/threadnipper.jpg').default,
+    product15: require('./product-images/seamripper.jpg').default,
+    product16: require('./product-images/pincushion.jpg').default,
+    product17: require('./product-images/punchneedle.jpg').default,
+    product18: require('./product-images/crewelneedle.jpg').default,
+
+    product19: require('./product-images/acc1.jpg').default,
+    product20: require('./product-images/acc2.png').default,
+    product21: require('./product-images/acc3.jpg').default,
+    product22: require('./product-images/acc4.jpg').default,
+    product23: require('./product-images/acc5.jpg').default,
+    product24: require('./product-images/acc6.jpg').default,
+    product25: require('./product-images/acc7.jpg').default,
+    product26: require('./product-images/acc8.jpg').default,
+
+    product27: require('./product-images/des1.jpg').default,
+    product28: require('./product-images/des2.jpg').default,
+    product29: require('./product-images/des3.jpg').default,
+    product30: require('./product-images/des4.jpg').default,
+    product31: require('./product-images/des5.jpg').default,
+    product32: require('./product-images/des6.jpg').default,
+    product33: require('./product-images/des7.jpg').default,
+    product34: require('./product-images/des8.jpg').default,
+
+    product35: require('./product-images/mac1.jpg').default,
+    product36: require('./product-images/mac2.jpg').default,
+    product37: require('./product-images/mac3.jpg').default,
+    product38: require('./product-images/mac4.jpg').default,
+    product39: require('./product-images/mac5.jpg').default,
+    product40: require('./product-images/mac6.jpg').default,
+    product41: require('./product-images/mac7.jpg').default,
+    product42: require('./product-images/mac8.jpg').default,
+};
+
+export default Images;
