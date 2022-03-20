@@ -1,8 +1,9 @@
-import MockmanEs from 'mockman-js';
+import Mockman from 'mockman-js';
 import { Route, Routes } from 'react-router';
 import './App.css';
 import { CategorySection, Navigation } from './components/index';
 import { CartPage, LandingPage, LoginPage, ProductPage, SignUpPage, WishlistPage } from './pages';
+
 import { CategoryProvider, ProductProvider  } from './context';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 				</CategoryProvider>
 			</ProductProvider>
 		</>
+
   );
 }
 

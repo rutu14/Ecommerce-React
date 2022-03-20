@@ -101,3 +101,4 @@ const FilterSection = ( {state , dispatch}  ) => {
 }
 
 export { FilterSection }
+

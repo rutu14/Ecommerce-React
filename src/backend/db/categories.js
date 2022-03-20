@@ -22,7 +22,7 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Tools",
-    image:Images.ategoryTools,
+    image:Images.categoryTools,
     description: "Acquire tools that will be suitable to you.",
   },
   {
@@ -33,7 +33,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Embroidery Machines",
+    categoryName: "Machines",
     image:Images.categoryMachine,
     description: "Capture your machine",
   }
