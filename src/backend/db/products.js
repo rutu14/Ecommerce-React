@@ -12,11 +12,11 @@ export const products = [
     title: "Women's Cotton Shirt",
     brand: "Akriti",
     image: Images.product1,
-    price: "1700",
+    price: 1700,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
+    rating: 4.0,
     categoryName: "Clothing"
   },
   {
@@ -24,11 +24,11 @@ export const products = [
     title: "Women's Jeans",
     brand: "Non Stop",
     image: Images.product2,
-    price: "2000",
+    price: 2000,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.4",
+    rating: 3.4,
     categoryName: "Clothing"
   },
   {
@@ -36,11 +36,11 @@ export const products = [
     title: "Smiling Shirt",
     brand: "Red",
     image: Images.product3,
-    price: "700",
+    price: 700,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
+    rating: 4.0,
     categoryName: "Clothing"
   },
   {
@@ -48,11 +48,11 @@ export const products = [
     title: "Women's Shirt",
     brand: "Mango",
     image: Images.product4,
-    price: "1100",
+    price: 1100,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.0",
+    rating: 3.0,
     categoryName: "Clothing"
   },
   {
@@ -60,11 +60,11 @@ export const products = [
     title: "Women's T-Shirt",
     brand: "Giffrae",
     image: Images.product5,
-    price: "500",
+    price: 500,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.7",
+    rating: 3.7,
     categoryName: "Clothing"
   },
   {
@@ -72,11 +72,11 @@ export const products = [
     title: "Beige Crop Top",
     brand: "Frills",
     image: Images.product6,
-    price: "950",
+    price: 950,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
+    rating: 4.0,
     categoryName: "Clothing"
   },
   {
@@ -84,11 +84,11 @@ export const products = [
     title: "Women's Shirt",
     brand: "Mango",
     image: Images.product7,
-    price: "800",
+    price: 800,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.1",
+    rating: 3.1,
     categoryName: "Clothing"
   },
   {
@@ -96,11 +96,11 @@ export const products = [
     title: "Women's Formal Shirt",
     brand: "Colors",
     image: Images.product8,
-    price: "3500",
+    price: 3500,
     onSale: true,
-    salePrice: "1500",    
+    salePrice: 1500,    
     outOfStock: false,
-    rating: "4.5",
+    rating: 4.5,
     categoryName: "Clothing"
   },
   {
@@ -108,11 +108,11 @@ export const products = [
     title: "Set of 7 Threads",
     brand: "DMC",
     image: Images.product9,
-    price: "300",
+    price: 300,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.2",
+    rating: 4.2,
     categoryName: "Tools"
   },
   {
@@ -120,11 +120,11 @@ export const products = [
     title: "Set of 12 Threads",
     brand: "DMC",
     image: Images.product10,
-    price: "700",
+    price: 700,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.5",
+    rating: 3.5,
     categoryName: "Tools"
   },
   {
@@ -132,11 +132,11 @@ export const products = [
     title: "Embroidery Thread Size 8",
     brand: "Valdani",
     image: Images.product11,
-    price: "1000",
+    price: 1000,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.8",
+    rating: 4.8,
     categoryName: "Tools"
   },
   {
@@ -144,11 +144,11 @@ export const products = [
     title: "Single Hoop",
     brand: "SD",
     image: Images.product12,
-    price: "100",
+    price: 100,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
+    rating: 4.0,
     categoryName: "Tools"
   },
   {
@@ -156,11 +156,11 @@ export const products = [
     title: "Set of Hoops",
     brand: "SD",
     image: Images.product13,
-    price: "500",
+    price: 500,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
+    rating: 4.0,
     categoryName: "Tools"
   },
   {
@@ -168,11 +168,11 @@ export const products = [
     title: "Thread Nipper",
     brand: "Praniti",
     image: Images.product14,
-    price: "1700",
+    price: 1700,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
+    rating: 4.0,
     categoryName: "Tools"
   },
   {
@@ -180,11 +180,11 @@ export const products = [
     title: "Seam Ripper",
     brand: "Praniti",
     image: Images.product15,
-    price: "150",
+    price: 150,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.9",
+    rating: 3.9,
     categoryName: "Tools"
   },
   {
@@ -192,11 +192,11 @@ export const products = [
     title: "Pin Cushion",
     brand: "Crafty",
     image: Images.product16,
-    price: "90",
+    price: 90,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.0",
+    rating: 3.0,
     categoryName: "Tools"
   },
   {
@@ -204,11 +204,11 @@ export const products = [
     title: "Punch Needle",
     brand: "Blooms",
     image: Images.product17,
-    price: "1700",
+    price: 1700,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.1",
+    rating: 4.1,
     categoryName: "Tools"
   },
   {
@@ -216,11 +216,11 @@ export const products = [
     title: "Crewel Needle",
     brand: "Colonial",
     image: Images.product18,
-    price: "95",
+    price: 95,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.5",
+    rating: 4.5,
     categoryName: "Tools"
   },
   {
@@ -228,11 +228,11 @@ export const products = [
     title: "Yellow Embroidery Linen Floral Bow Head Band",
     brand: "The Littleish",
     image: Images.product19,
-    price: "170",
+    price: 170,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.3",
+    rating: 4.3,
     categoryName: "Accessories"
   },
   {
@@ -240,11 +240,11 @@ export const products = [
     title: "Set of Embroidered Buttons",
     brand: "Forever",
     image: Images.product20,
-    price: "500",
+    price: 500,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.9",
+    rating: 4.9,
     categoryName: "Accessories"
   },
   {
@@ -252,11 +252,11 @@ export const products = [
     title: "Embroidered Purple Cap",
     brand: "Actions",
     image: Images.product21,
-    price: "2700",
+    price: 2700,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.6",
+    rating: 4.6,
     categoryName: "Accessories"
   },
   {
@@ -264,11 +264,11 @@ export const products = [
     title: "Teal Potli",
     brand: "Shichan",
     image: Images.product22,
-    price: "3500",
+    price: 3500,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.9",
+    rating: 4.9,
     categoryName: "Accessories"
   },
   {
@@ -276,11 +276,11 @@ export const products = [
     title: "Necklace Pendant",
     brand: "Anu",
     image: Images.product23,
-    price: "1200",
+    price: 1200,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.1",
+    rating: 4.1,
     categoryName: "Accessories"
   },
   {
@@ -288,11 +288,11 @@ export const products = [
     title: "Velet Scrunchies",
     brand: "The Littleish",
     image: Images.product24,
-    price: "200",
+    price: 200,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.2",
+    rating: 3.2,
     categoryName: "Accessories"
   },
   {
@@ -300,11 +300,11 @@ export const products = [
     title: "Floral KeyChain",
     brand: "Anu",
     image: Images.product25,
-    price: "850",
+    price: 850,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "3.5",
+    rating: 3.5,
     categoryName: "Accessories"
   },
   {
@@ -312,11 +312,11 @@ export const products = [
     title: "M Letter Tote Bag",
     brand: "Bagee",
     image: Images.product26,
-    price: "1300",
+    price: 1300,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
+    rating: 4.0,
     categoryName: "Accessories"
   },
   {
@@ -324,11 +324,11 @@ export const products = [
     title: "Pink Roses Bouquet",
     brand: "Aanchal",
     image: Images.product27,
-    price: "100",
+    price: 100,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.1",
+    rating: 4.1,
     categoryName: "Designs"
   },
   {
@@ -336,11 +336,11 @@ export const products = [
     title: "Lemonade",
     brand: "Aanchal",
     image: Images.product28,
-    price: "200",
+    price: 200,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.3",
+    rating: 4.3,
     categoryName: "Designs"
   },
   {
@@ -348,11 +348,11 @@ export const products = [
     title: "Icy Winter Wreath",
     brand: "Aanchal",
     image: Images.product29,
-    price: "500",
+    price: 500,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.7",
+    rating: 4.7,
     categoryName: "Designs"
   },
   {
@@ -360,11 +360,11 @@ export const products = [
     title: "Keep It Cosy",
     brand: "Aanchal",
     image: Images.product30,
-    price: "300",
+    price: 300,
     onSale: false,
-    salePrice: "0",    
+  salePrice: 0,     
     outOfStock: false,
-    rating: "3.3",
+    rating: 3.3,
     categoryName: "Designs"
   },
   {
@@ -372,11 +372,11 @@ export const products = [
     title: "Spring Hydrangea",
     brand: "Aanchal",
     image: Images.product31,
-    price: "700",
+    price: 700,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.3",
+    rating: 4.3,
     categoryName: "Designs"
   },
   {
@@ -384,11 +384,11 @@ export const products = [
     title: "Love Is Love",
     brand: "Aanchal",
     image: Images.product32,
-    price: "400",
+    price: 400,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.3",
+    rating: 4.3,
     categoryName: "Designs"
   },
   {
@@ -396,11 +396,11 @@ export const products = [
     title: "Flower Mandala",
     brand: "Aanchal",
     image: Images.product33,
-    price: "900",
+    price: 900,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.9",
+    rating: 4.9,
     categoryName: "Designs"
   },
   {
@@ -408,11 +408,11 @@ export const products = [
     title: "Folk Bird",
     brand: "Aanchal",
     image: Images.product34,
-    price: "1300",
+    price: 1300,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.9",
+    rating: 4.9,
     categoryName: "Designs"
   },
   {
@@ -420,95 +420,95 @@ export const products = [
     title: "BP3600",
     brand: "Brother",
     image: Images.product35,
-    price: "2,95,000",
+    price: 295000,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.5",
-    categoryName: "Embroidery Machines"
+    rating: 4.5,
+    categoryName: "Machines"
   },
   {
     _id: uuid(),
     title: "INNOV-IS V3 SE",
     brand: "Brother",
     image: Images.product36,
-    price: "2,35,000",
+    price: 235000,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
-    categoryName: "Embroidery Machines"
+    rating: 4.0,
+    categoryName: "Machines"
   },
   {
     _id: uuid(),
     title: "Innov-is F440E",
     brand: "Brother",
     image: Images.product37,
-    price: "95,000",
+    price: 95000,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
-    categoryName: "Embroidery Machines"
+    rating: 4.0,
+    categoryName: "Machines"
   },
   {
     _id: uuid(),
     title: "INNOV-IS V5",
     brand: "Brother",
     image: Images.product38,
-    price: "2,85,000",
+    price: 285000,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
-    categoryName: "Embroidery Machines"
+    rating: 4.0,
+    categoryName: "Machines"
   },
   {
     _id: uuid(),
     title: "Janome",
     brand: "Usha",
     image: Images.product39,
-    price: "17,500",
+    price: 17500,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
-    categoryName: "Embroidery Machines"
+    rating: 4.0,
+    categoryName: "Machines"
   },
   {
     _id: uuid(),
     title: "Handy Stitch Machine",
     brand: "SAUM ",
     image: Images.product40,
-    price: "900",
+    price: 900,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
-    categoryName: "Embroidery Machines"
+    rating: 4.0,
+    categoryName: "Machines"
   },
   {
     _id: uuid(),
     title: "Sew & Go",
     brand: "Bernette",
     image: Images.product41,
-    price: "14,850",
+    price: 14850,
     onSale: false,
-    salePrice: "0",    
+    salePrice: 0,     
     outOfStock: false,
-    rating: "4.0",
-    categoryName: "Embroidery Machines"
+    rating: 4.0,
+    categoryName: "Machines"
   },
   {
     _id: uuid(),
     title: "Janome Excella DLX",
     brand: "Usha",
     image: Images.product42,
-    price: "13,900",
+    price: 13900,
     onSale: false,
-    salePrice: "0",    
-    outOfStock: false,
-    rating: "4.0",
-    categoryName: "Embroidery Machines"
+    salePrice: 0,     
+    outOfStock: true,
+    rating: 4.0,
+    categoryName: "Machines"
   }
 ];

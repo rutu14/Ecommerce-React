@@ -1,3 +1,5 @@
 import { Navigation } from "./Navigation/Navigation";
 
-export { Navigation }
+import { Alert } from "./Alerts/Alert";
+
+export { Navigation, CategorySection, HeroSection, Loader, FilterSection, ProductCard, Alert }
