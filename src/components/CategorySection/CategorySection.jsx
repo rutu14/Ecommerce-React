@@ -1,33 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CategoryContext } from "../../context";
 import { Loader } from "../index";
 
 const CategorySection = () => {
-    const [ loader, setLoader ] = useState(false);
-    const [ categoryData, setCategoryData] = useState(null);
-    const [ categoryError, setCategoryError ] = useState(null);
-
-    const getCategories = async() => {
-        try{
-            setLoader(true)
-            const { data } = await axios.get("/api/categories");
-            setCategoryData( data.categories )
-            setLoader(false)
-        }
-        catch(error){
-            setCategoryError(error)
-        }
-    }  
-      
-    useEffect( () => { getCategories() },[ ]);
-
+    const { category } = useContext(CategoryContext);   
     return (
       <>
         <h3 id="category" className="heading2 medium text-center m20">Category</h3>
-        { loader && <Loader/>}
+        { category.loader && <Loader/>}
         <section className="grid-3-cols below-hero">
-            {categoryData && categoryData.map((item) => (
+            {category.info && category.info.map((item) => (
                 <Link to={`product/${item.categoryName}`} className="card card-box-shadow cp category-card" key={item._id}>
                     <div className="card-title-box middle-overlay title-color">
                         <h2 className="heading3 text-center medium">{item.categoryName}</h2>

@@ -11,6 +11,7 @@
     --box-shadow: #0000000d;
     --delete-btn: #f88484;
     --wishlist-shadow:#00000080;
+    --outofstockbg:#f0f8ffa3;
 
     --site-name-font: 'Dekko', cursive;
 }
@@ -25,4 +26,14 @@ main{
 
 .main-container{
     padding: 1.5rem 2rem;
+}
+
+.alert{
+    position: absolute;
+    left: 40%;
+    z-index: 2;
+}
+
+.close-btn{
+    color: var(--black);
 }

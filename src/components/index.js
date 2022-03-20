@@ -5,4 +5,7 @@ import { Loader } from "./Loader/Loader";
 import { FilterSection } from "./FilterSection/FilterSection";
 import { ProductCard } from "./ProductCard/ProductCard";
 
-export { Navigation, CategorySection, HeroSection, Loader, FilterSection, ProductCard }
+import { Alert } from "./Alerts/Alert";
+
+export { Navigation, CategorySection, HeroSection, Loader, FilterSection, ProductCard, Alert }
+

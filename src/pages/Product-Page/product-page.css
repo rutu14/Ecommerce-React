@@ -119,15 +119,60 @@
     color: var(--info-text);
 }
 
-.sale-price{
+.sale-price {
     color: var(--secondary-colour);
-    font-size: 1.2rem;
+    font-size: 1.37rem;
     text-decoration: line-through;
+    text-decoration-color: var(--error-text);
+    margin-right: 9px;
+}
+
+.discount-badge {
+    position:absolute;
+    font-size: 1.3rem; 
+    width:40px;
+    height:50px;  
+    background: var(--disabled-inner);
+    color: var(--info-text);
+    font-weight: 650;
+    border-radius: 4px;
+    line-height: 25px;
+    text-align: center;
+    transform: translate(5px,-10px);
+}
+
+.out-of-stock{
+    width: inherit;
+    transform: translate(0,0);
+    background-color: var(--outofstockbg);
+    height: 200px;
+    position: absolute;
+}
+.out-of-stock-label{
+    width: inherit;
+    color: var(--black);
+    font-size: 3rem;
+    padding: 88px 0;
 }
 
 .card-subtitle{
     overflow-y: hidden;
     height: 2.2rem;
+}
+
+.range-label{
+    padding: 0 10px;
+    width: fit-content;
+    margin: 0 auto 3px;
+    height: 2.6rem;
+    line-height: 2.4rem;
+    text-align: center;
+    background: var(--disabled-inner);
+    color: var(--info-text);
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: block;
+    border-radius: 4px;
 }
 
 @media only screen and (min-width: 1500px) {
