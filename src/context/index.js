@@ -1,4 +1,5 @@
-import { CategoryProvider, useCategoryData, CategoryContext } from "./categoryContext";
-import { ProductProvider, useProductData, ProductContext  } from "./productContext";
+import { CategoryProvider, CategoryContext } from "./categoryContext";
+import { ProductProvider, ProductContext  } from "./productContext";
+import { UserProvider, UserContext } from "./userContext";
 
-export { CategoryProvider, useCategoryData, CategoryContext, ProductProvider, useProductData, ProductContext }
+export { CategoryProvider, CategoryContext, ProductProvider, ProductContext,  UserProvider, UserContext }
