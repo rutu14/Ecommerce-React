@@ -13,7 +13,6 @@ const useFilters = ( ) => {
         sortBy: ""
     };
 
-    const [ state, dispatch  ] = useReducer(reducer, initialState);
     const reducer = (state, action) => {
         switch (action.type) {
 			case "INVENTORY":
@@ -44,6 +43,8 @@ const useFilters = ( ) => {
 				return state;
         }
       }
+	
+	const [ state, dispatch ] = useReducer(reducer, initialState);
 
     const getSortedData = (productList, sortBy) => {
         if (sortBy && sortBy === "High-Low") {
