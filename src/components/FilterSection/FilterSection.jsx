@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { CategoryContext } from "../../context";
-import { Loader } from "../index";
+import { SpinLoader } from "../index";
 
 const FilterSection = ( {state , dispatch}  ) => {
     const { categoryName } = useParams(); 
@@ -67,7 +67,7 @@ const FilterSection = ( {state , dispatch}  ) => {
             </section> 
             
             <h4 className="heading4 filter-section-heading medium m-t10">Category</h4>
-            { loader && <Loader/>}
+            { loader && <SpinLoader/>}
             <section className="filter-1 m-t5">
                 {info && info.map((item) => (
                     <div key={item._id}>

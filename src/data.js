@@ -10,10 +10,6 @@ export const linkMobileNames = [{
     id:3,
     link: 'Wishlist ',
     icon: 'bi bi-heart'
-},{
-    id:4,
-    link: 'Logout ',
-    icon: 'bi bi-door-closed'
 }];
 
 export const linkNames = [{
