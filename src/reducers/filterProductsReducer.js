@@ -14,7 +14,7 @@ const useFilters = ( ) => {
     };
 
     const [ state, dispatch  ] = useReducer(reducer, initialState);
-      function reducer(state, action) {
+    const reducer = (state, action) => {
         switch (action.type) {
 			case "INVENTORY":
 				return (state = {
@@ -45,38 +45,36 @@ const useFilters = ( ) => {
         }
       }
 
-      function getSortedData(productList, sortBy) {
+    const getSortedData = (productList, sortBy) => {
         if (sortBy && sortBy === "High-Low") {
           return productList.sort((a, b) => b.price - a.price);
         }
-    
         if (sortBy && sortBy === "Low-High") {
           return productList.sort((a, b) => a.price - b.price);
         }
         return productList;
-      }
+    }
 
-      function getCategroyData(productList, showCategory) {
+	const getCategroyData = (productList, showCategory) => {
         if( showCategory.length!==0 ){
             return productList.filter( prd => showCategory.includes( prd.categoryName ) );
-          }      
+        }      
         return productList;
-      }
+    }
 
-	  function getRangeData(productList, rangeBy ) {
+	const getRangeData = (productList, rangeBy ) => {
         return productList.filter( prd => prd.price >= rangeBy );
-      }
+    }
     
-      function getFilteredData(productList, showInventory ) {
+	const getFilteredData = (productList, showInventory ) => {
         return productList.filter( prd => showInventory ? prd.outOfStock == false : true );
-      }
+    }
 
-      const sortedData = getSortedData( products, state.sortBy);
-      const categoryData = getCategroyData(sortedData, state.showCategory);
-	  const sliderData = getRangeData(categoryData, state.rangeBy);
-      const inventoryData = getFilteredData( sliderData , state.showInventory );
+    const sortedData = getSortedData( products, state.sortBy);
+    const categoryData = getCategroyData(sortedData, state.showCategory);
+	const sliderData = getRangeData(categoryData, state.rangeBy);
+    const inventoryData = getFilteredData( sliderData , state.showInventory );
 
-	console.log(inventoryData)
     return ( { inventoryData, state, dispatch })
 }
 

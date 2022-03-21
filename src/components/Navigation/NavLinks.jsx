@@ -9,7 +9,6 @@ const NavLinks = ( { avatarName } ) => {
     const { tokenPresent } = state;
 
     const ShowDropdown = () => {
-        console.log(signout)
         return(
             <div id="dropdown" className="dropdown-menu generatecssdotcom_arrow">
                 <Link to={'/'} className="btn-link cp td text-center m-t10" role="button" onClick={signout}>
@@ -54,8 +53,7 @@ const NavLinks = ( { avatarName } ) => {
                     ))}
                 </ul>
             </nav>
-            {tokenPresent ? <DropdownAvatar/> : <LoginButton/> }
-            
+            {tokenPresent ? <DropdownAvatar/> : <LoginButton/> }            
         </div>
     );
 }
