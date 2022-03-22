@@ -33,7 +33,7 @@ const CartCard = ({ deleteCart, addQty, subQty, cartValue }) => {
                 <i className="bi bi-stars rating-icon"></i>{rating}
             </div>
             {onSale ? (<div className="discount-badge">{discount.toFixed(0)}% OFF</div>) : " " }
-            <img class="card-img horizontal-large-img card-h-img-border-l cart-card-img" alt="Product-Image" src={image}/>
+            <img class="card-img horizontal-large-img card-h-img-border-l cart-card-img" alt={`${brand}-${title}`} src={image}/>
             <div class="card-body horizontal-large-content cart-card-width">
                 <div class="card-title-box cart-card-width">
                     <h2 class="card-title medium">{brand}</h2>

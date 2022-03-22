@@ -39,7 +39,7 @@ const ProductCard = ({cardValue, addCart, handleOutOfStock}) => {
                 <i className="bi bi-stars rating-icon"></i>{rating}
             </div>
             {onSale ? (<div className="discount-badge">{discount.toFixed(0)}% OFF</div>) : " " }
-            <img className="card-img card-img-border product-card-img" src={image}/>
+            <img className="card-img card-img-border product-card-img" alt={`${brand}-${title}`} src={image}/>
             <div className="card-title-box product-card-title-box">
                 <h2 className="card-title medium">{brand}</h2>
                 <h3 className="card-subtitle medium">{title}</h3>

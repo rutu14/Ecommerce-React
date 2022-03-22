@@ -31,10 +31,10 @@ const ProductPage = () => {
             <section className="product-grid grid-4-cols"> 
             {viewAlert1 && <Alert customClass={'prdwarn'} action={'info'} closefn={closeAlert} title={'Product Added'} description={'Change the quantity in cart page.'}/>}
             {viewAlert && <Alert customClass={'prdwarn'} action={'warning'} closefn={closeAlert} title={'Out of Stock'} description={'The product is currently out of stock'}/>}
-                { loader && <SpinLoader/>}
-                {inventoryData && inventoryData.map((item) => (
-                    <ProductCard key={item._id} cardValue={item} addCart={addCart} handleOutOfStock={handleOutOfStock}/>
-                )) }                                  
+            { loader && <SpinLoader/>}
+            {inventoryData && inventoryData.map((item) => (
+                <ProductCard key={item._id} cardValue={item} addCart={addCart} handleOutOfStock={handleOutOfStock}/>
+            )) }                                  
             </section>   
         </main>
     );
