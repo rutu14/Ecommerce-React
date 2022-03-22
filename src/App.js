@@ -14,7 +14,7 @@ function App() {
 				<CategoryProvider>
 					<Navigation />
 					<Routes>
-						<Route path='/home' element={<LandingPage/>}/>
+						<Route path='home' element={<LandingPage/>}/>
 						<Route index element={<LandingPage/>}/>
 						<Route path='login' element={<LoginPage/>}/>
 						<Route path='signup' element={<SignUpPage/>}/>
