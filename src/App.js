@@ -3,12 +3,13 @@ import { Route, Routes } from 'react-router';
 import './App.css';
 import { CategorySection, Navigation } from './components/index';
 import { CartPage, LandingPage, LoginPage, ProductPage, SignUpPage, WishlistPage } from './pages';
-
-import { CategoryProvider, ProductProvider  } from './context';
+import { CartProvider, CategoryProvider, ProductProvider, UserProvider  } from './context';
 
 function App() {
   return (
 		<>
+		<UserProvider>
+			<CartProvider>
 			<ProductProvider>
 				<CategoryProvider>
 					<Navigation />
@@ -26,6 +27,8 @@ function App() {
 					</Routes>
 				</CategoryProvider>
 			</ProductProvider>
+			</CartProvider>
+		</UserProvider>
 		</>
 
   );
