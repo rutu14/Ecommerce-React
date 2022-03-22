@@ -1,6 +1,7 @@
 import axios from "axios"
 import React, { createContext, useContext, useReducer } from "react";
-import { userReducer } from "../reducers/userReducer";
+import { userReducer } from "../reducers";
+import { CartContext } from "./index";
 
 const defaultValue = {
     loader: false,
@@ -14,6 +15,8 @@ const defaultValue = {
 const UserContext = createContext(defaultValue);
 
 const UserProvider = ({ children }) => {
+
+    const { dispatch:cartDispatch } = useContext(CartContext)
 
     const [ state, dispatch  ] = useReducer(userReducer, defaultValue);
 
@@ -31,6 +34,7 @@ const UserProvider = ({ children }) => {
     const signout = () => {
         localStorage.removeItem('token')
         dispatch({ type: "LOGOUT" })
+        cartDispatch({ type:"CART_ON_LOGOUT" })
     }
       
     const signup = async(firstname, lastname, email, password) => {

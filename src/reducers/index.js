@@ -1,3 +1,5 @@
 import { useFilters } from "./filterProductsReducer";
+import { userReducer } from './userReducer';
+import { cartReducer } from "./cartReducer";
 
-export { useFilters }
+export { useFilters, userReducer, cartReducer }

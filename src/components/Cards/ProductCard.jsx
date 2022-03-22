@@ -1,4 +1,20 @@
-const ProductCard = ({cardValue , handleOutOfStock}) => {    
+import { useContext } from "react";
+import { useNavigate } from "react-router";
+import { CartContext, UserContext } from "../../context";
+
+const ProductCard = ({cardValue, addCart, handleOutOfStock}) => {   
+    const navigate = useNavigate();
+    const { state } = useContext(UserContext);
+    const { tokenPresent } = state;
+    
+    const addtoCart = () => {
+        if(tokenPresent){
+            addCart( cardValue )
+        }else{
+            navigate('/login')
+        }
+    }
+
     const { _id,
         title,
         brand,
@@ -13,7 +29,6 @@ const ProductCard = ({cardValue , handleOutOfStock}) => {
     const prdPrice = price.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
     const onSalePrice = salePrice.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
     const discount = Number((( price - salePrice ) / price ) * 100);
-
     
     return (       
         <div className="card card-box-shadow product-card">
@@ -45,7 +60,8 @@ const ProductCard = ({cardValue , handleOutOfStock}) => {
                     onClick={handleOutOfStock} type="button">
                         <i className="bi bi-cart inside-btn product-btn-icon"></i>Add to Cart
                     </button>
-                :   <button className="btn btn-primary text-uppercase hero-btn product-btn" type="button">
+                :   <button className="btn btn-primary text-uppercase hero-btn product-btn"
+                    onClick={addtoCart} type="button">
                         <i className="bi bi-cart inside-btn product-btn-icon"></i>Add to Cart
                     </button>
                 }                

@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { linkNames } from "../../data";
 import { useContext } from 'react';
-import { UserContext } from '../../context';
+import { CartContext, UserContext } from '../../context';
 
 const NavLinks = ( { avatarName } ) => {
     const { state, signout } = useContext(UserContext);
     const { tokenPresent } = state;
+    const { state:cart } = useContext(CartContext);
+    const [ cartBadge, setCartBadge ] = useState(0)
+    useEffect( () => {
+        setCartBadge(cart.cartInfo.length);
+    },[cart.cartInfo])
 
     const ShowDropdown = () => {
         return(
@@ -46,7 +51,10 @@ const NavLinks = ( { avatarName } ) => {
                             <button className="button-icon nav-icon cp">
                                 <i className={linkValue.icon}></i>
                                 { linkValue.badgePresent 
-                                ? <span className="textButtonBadge nav-icon-badge">{linkValue.badgeValue}</span> : ''}
+                                ? linkValue.route === 'cart' 
+                                    ? <span className="textButtonBadge nav-icon-badge">{cartBadge}</span> 
+                                    : <span className="textButtonBadge nav-icon-badge">0</span>
+                                : ''}
                             </button>
                         </Link>
                     </li>
