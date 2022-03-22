@@ -2,14 +2,14 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CategoryContext } from "../../context";
-import { Loader } from "../index";
+import { SpinLoader } from "../index";
 
 const CategorySection = () => {
     const { category } = useContext(CategoryContext);   
     return (
       <>
         <h3 id="category" className="heading2 medium text-center m20">Category</h3>
-        { category.loader && <Loader/>}
+        { category.loader && <SpinLoader/>}
         <section className="grid-3-cols below-hero">
             {category.info && category.info.map((item) => (
                 <Link to={`product/${item.categoryName}`} className="card card-box-shadow cp category-card" key={item._id}>

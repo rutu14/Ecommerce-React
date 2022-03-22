@@ -1,7 +1,11 @@
 import './loader.css'
 
-const Loader = () => {
+const SpinLoader = () => {
     return ( <div className="loader"></div> );
 }
 
-export { Loader };
+const DotsLoader = () => {
+    return ( <div className="stage"><div className="dot-pulse"></div></div> );
+}
+
+export { SpinLoader, DotsLoader };

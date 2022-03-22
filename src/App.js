@@ -4,16 +4,17 @@ import './App.css';
 import { CategorySection, Navigation } from './components/index';
 import { CartPage, LandingPage, LoginPage, ProductPage, SignUpPage, WishlistPage } from './pages';
 
-import { CategoryProvider, ProductProvider  } from './context';
+import { CategoryProvider, ProductProvider, UserProvider  } from './context';
 
 function App() {
   return (
 		<>
+		<UserProvider>
 			<ProductProvider>
 				<CategoryProvider>
 					<Navigation />
 					<Routes>
-						<Route path='/home' element={<LandingPage/>}/>
+						<Route path='home' element={<LandingPage/>}/>
 						<Route index element={<LandingPage/>}/>
 						<Route path='login' element={<LoginPage/>}/>
 						<Route path='signup' element={<SignUpPage/>}/>
@@ -26,6 +27,7 @@ function App() {
 					</Routes>
 				</CategoryProvider>
 			</ProductProvider>
+		</UserProvider>
 		</>
 
   );

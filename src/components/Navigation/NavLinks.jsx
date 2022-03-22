@@ -1,30 +1,41 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { linkNames } from "../../data";
+import { useContext } from 'react';
+import { UserContext } from '../../context';
 
-const ShowDropdown = () => {
-    return(
-        <div id="dropdown" className="dropdown-menu generatecssdotcom_arrow">
-            <a href="#" className="btn-link cp td text-center m-t10" role="button">
-                Logout
-            </a>
-        </div>        
-    );
-}
+const NavLinks = ( { avatarName } ) => {
+    const { state, signout } = useContext(UserContext);
+    const { tokenPresent } = state;
 
-const DropdownAvatar = () => {    
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleDropdown = () => setIsOpen(!isOpen);
+    const ShowDropdown = () => {
+        return(
+            <div id="dropdown" className="dropdown-menu generatecssdotcom_arrow">
+                <Link to={'/'} className="btn-link cp td text-center m-t10" role="button" onClick={signout}>
+                    Logout
+                </Link>
+            </div>        
+        );
+    }
+    
+    const DropdownAvatar = () => {    
+        const [isOpen, setIsOpen] = useState(false);
+        const toggleDropdown = () => setIsOpen(!isOpen);
+    
+        return(
+            <div className="account">  
+                <button id="drop-btn" className="avatar avatar-text text-md cp" onClick={toggleDropdown}>{avatarName}</button>
+                {isOpen && ( <ShowDropdown/> )}
+            </div>
+        );
+    }
+    
+    const LoginButton = () => {
+        return (
+            <Link to={'login'} className="btn btn-primary outline login-sign" type="button">Login</Link> 
+        );
+    }
 
-    return(
-        <div className="account">  
-            <button id="drop-btn" className="avatar avatar-text text-md cp" onClick={toggleDropdown}>RL</button>
-            {isOpen && ( <ShowDropdown/> )}
-        </div>
-    );
-}
-
-const NavLinks = () => {
     return(
         <div className="nav-items">
             <nav className="icon-section">
@@ -42,7 +53,7 @@ const NavLinks = () => {
                     ))}
                 </ul>
             </nav>
-            <DropdownAvatar/>
+            {tokenPresent ? <DropdownAvatar/> : <LoginButton/> }            
         </div>
     );
 }

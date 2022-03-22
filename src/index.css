@@ -30,7 +30,6 @@ main{
 
 .alert{
     position: absolute;
-    left: 40%;
     z-index: 2;
 }
 
