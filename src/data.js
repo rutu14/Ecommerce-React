@@ -20,7 +20,6 @@ export const linkNames = [{
     link: 'Products ',
     icon: 'bi bi-basket',
     badgePresent: false,
-    badgeValue: 0,
     route: 'product'
 },
 {
@@ -28,14 +27,12 @@ export const linkNames = [{
     link: 'Cart ',
     icon: 'bi bi-cart',
     badgePresent: true,
-    badgeValue: 0,
     route: 'cart'
 },{
     id:3,
     link: 'Wishlist ',
     icon: 'bi bi-heart',
     badgePresent: true,
-    badgeValue: 0,
     route: 'wishlist'
 }];
 
