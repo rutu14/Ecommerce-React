@@ -23,9 +23,8 @@ const CartProvider = ({ children }) => {
             const config = { headers: { 'authorization': token } };
             const { data } = await axios.get( '/api/user/cart', config );
             dispatch({ type: "CART_SUCCESS", payload: data.cart })          
-        } catch (error ) {
-            console.log(error.response )
-            dispatch({ type: "CART_ERROR", payload: error })
+        } catch (error) {
+            dispatch({ type: "CART_ERROR", payload: error.response.data.errors[0] })
         }
     }
 
@@ -36,21 +35,18 @@ const CartProvider = ({ children }) => {
             const config = { headers: { 'authorization': token } };
             if( state.cartInfo.length === 0 ){
                 const { data } = await axios.post( '/api/user/cart',{ product }, config );
-                console.log(data)
                 dispatch({ type: "CART_SUCCESS", payload: data.cart })     
             }else{
                 const matchFound = state.cartInfo.findIndex((prod) => prod._id === product._id);
                 if( matchFound === -1 ) {
                     const { data } = await axios.post( '/api/user/cart',{ product }, config );
-                    console.log("No match",data)
                     dispatch({ type: "CART_SUCCESS", payload: data.cart }) 
                 }else{                    
                     dispatch({ type: "CART_SUCCESS_MATCH" })                    
                 }                 
             }                  
         } catch (error) {
-            console.log(error)
-            dispatch({ type: "CART_ERROR", payload: error })
+            dispatch({ type: "CART_ERROR", payload: error.response.data.errors[0] })
         }
     }
 
@@ -60,11 +56,9 @@ const CartProvider = ({ children }) => {
             const token = localStorage.getItem("token");
             const config = { headers: { 'authorization': token } };
             const { data } = await axios.delete( `/api/user/cart/${productId}`, config );
-            console.log(data)
             dispatch({ type: "CART_SUCCESS", payload: data.cart })          
-        } catch (error ) {
-            console.log(error.response )
-            dispatch({ type: "CART_ERROR", payload: error })
+        } catch (error) {
+            dispatch({ type: "CART_ERROR", payload: error.response.data.errors[0] })
         }
     }
 
@@ -74,11 +68,9 @@ const CartProvider = ({ children }) => {
             const token = localStorage.getItem("token");
             const config = { headers: { 'authorization': token } };
             const { data } = await axios.post( `/api/user/cart/${productId}`,{action:{ type: "increment" }}, config );
-            console.log(data)
             dispatch({ type: "CART_SUCCESS", payload: data.cart })          
-        } catch (error ) {
-            console.log(error.response )
-            dispatch({ type: "CART_ERROR", payload: error })
+        } catch (error) {
+            dispatch({ type: "CART_ERROR", payload: error.response.data.errors[0] })
         }
     }
 
@@ -88,11 +80,9 @@ const CartProvider = ({ children }) => {
             const token = localStorage.getItem("token");
             const config = { headers: { 'authorization': token } };
             const { data } = await axios.post( `/api/user/cart/${productId}`,{action:{ type: "decrement" }}, config );
-            console.log(data)
             dispatch({ type: "CART_SUCCESS", payload: data.cart })          
-        } catch (error ) {
-            console.log(error.response )
-            dispatch({ type: "CART_ERROR", payload: error })
+        } catch (error) {
+            dispatch({ type: "CART_ERROR", payload: error.response.data.errors[0] })
         }
     }
         

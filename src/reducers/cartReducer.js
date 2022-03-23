@@ -23,12 +23,6 @@ const cartReducer = (state, action) => {
                 loader: false,
                 productAdded: false
             });
-        case "CART_SUCCESS_MATCH_UNDO":
-            return (state = {
-                ...state,
-                loader: false,
-                productAdded: false
-            });
         case "CART_ERROR":
             return (state = {
                 ...state,

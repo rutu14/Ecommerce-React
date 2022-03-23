@@ -18,7 +18,6 @@ const CartPage = () => {
 
     const subTotal = () => {
         cartState.cartInfo.map(( cartValue ) => {
-            console.log(cartValue.price)
             setPriceCal( ( cal ) => cal + ( cartValue.price * cartValue.qty ));
             if( cartValue.onSale ){
                 const diff = cartValue.price - cartValue.salePrice;
