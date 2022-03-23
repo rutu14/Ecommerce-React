@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
-import { CartContext, UserContext } from "../../context";
+import { UserContext } from "../../context";
 
-const ProductCard = ({cardValue, addCart, handleOutOfStock}) => {   
+const ProductCard = ({cardValue, addCart, addWishlist, handleOutOfStock}) => {   
     const navigate = useNavigate();
     const { state } = useContext(UserContext);
     const { tokenPresent } = state;
@@ -10,6 +10,14 @@ const ProductCard = ({cardValue, addCart, handleOutOfStock}) => {
     const addtoCart = () => {
         if(tokenPresent){
             addCart( cardValue )
+        }else{
+            navigate('/login')
+        }
+    }
+
+    const addtoWishlist = () => {
+        if(tokenPresent){
+            addWishlist( cardValue )
         }else{
             navigate('/login')
         }
@@ -23,15 +31,14 @@ const ProductCard = ({cardValue, addCart, handleOutOfStock}) => {
         onSale,
         salePrice,    
         outOfStock,
-        rating,
-        categoryName } = cardValue;
+        rating } = cardValue;
 
     const prdPrice = price.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
     const onSalePrice = salePrice.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
     const discount = Number((( price - salePrice ) / price ) * 100);
     
     return (       
-        <div className="card card-box-shadow product-card">
+        <div className="card card-box-shadow product-card" key={_id}>
             {outOfStock ? <div className="out-of-stock">
                 <p className="out-of-stock-label medium text-center">Out Of Stock</p>
                 </div> : "" }
@@ -52,7 +59,7 @@ const ProductCard = ({cardValue, addCart, handleOutOfStock}) => {
                 : prdPrice}                 
             </div>
             <div className="product-btns">
-                <button className="btn btn-primary outline text-uppercase hero-btn product-btn wishlist-btn" type="button">
+                <button className="btn btn-primary outline text-uppercase hero-btn product-btn wishlist-btn" onClick={addtoWishlist} type="button">
                     <i className="bi bi-heart inside-btn product-btn-icon"></i>WishList
                 </button>
                 {outOfStock 

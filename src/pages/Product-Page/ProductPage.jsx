@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { FilterSection, ProductCard, SpinLoader, Alert } from '../../components';
-import { CartContext, ProductContext } from '../../context';
+import { CartContext, ProductContext, WishlistContext } from '../../context';
 import { useFilters } from '../../reducers';
 import './product-page.css'
 
@@ -12,6 +12,7 @@ const ProductPage = () => {
 	const { loader } = product;
     const { state: cart , addCart, dispatch:cartDispatch } = useContext(CartContext);
     const { productAdded } = cart;
+    const { state: wishlist , addWishlist, dispatch:wishlistDispatch } = useContext(WishlistContext);
 
     const{ inventoryData, state, dispatch } = useFilters( );
 
@@ -33,7 +34,7 @@ const ProductPage = () => {
             {viewAlert && <Alert customClass={'prdwarn'} action={'warning'} closefn={closeAlert} title={'Out of Stock'} description={'The product is currently out of stock'}/>}
             { loader && <SpinLoader/>}
             {inventoryData && inventoryData.map((item) => (
-                <ProductCard key={item._id} cardValue={item} addCart={addCart} handleOutOfStock={handleOutOfStock}/>
+                <ProductCard key={item._id} cardValue={item} addCart={addCart} addWishlist={addWishlist} handleOutOfStock={handleOutOfStock}/>
             )) }                                  
             </section>   
         </main>
