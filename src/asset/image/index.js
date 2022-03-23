@@ -6,6 +6,8 @@ const Images = {
     categoryTools: require('./category-images/tools.png'),
 
     landingPageImage: require('./design.jfif'),
+    cartPageImage: require('./box.png'),
+    wishlistPageImage: require('./like.png'),
 
     product1: require('./product-images/clothing (1).jfif'),
     product2: require('./product-images/clothing (2).jfif'),

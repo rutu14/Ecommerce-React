@@ -14,11 +14,11 @@ const MobileNavigation = () => {
                 <ul className="menu-nav">  
                     {linkMobileNames.map((linkValue) => (
                     <li className="no-list" key={linkValue.id}> 
-                        <a href="#" className="btn-link" role="button">
+                        <Link to={linkValue.route} className="btn-link" role="button">
                             <button className="button-icon text-uppercase nav-icon cp">{linkValue.link}
                                 <i className={linkValue.icon}></i>
                             </button>
-                        </a>
+                        </Link>
                     </li>
                     ))}  
                     { tokenPresent 

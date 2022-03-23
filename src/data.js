@@ -1,15 +1,18 @@
 export const linkMobileNames = [{
     id:1,
     link: 'Products ',
-    icon: 'bi bi-basket'
+    icon: 'bi bi-basket',
+    route: 'product'
 },{
     id:2,
     link: 'Cart ',
-    icon: 'bi bi-cart'
+    icon: 'bi bi-cart',
+    route: 'cart'
 },{
     id:3,
     link: 'Wishlist ',
-    icon: 'bi bi-heart'
+    icon: 'bi bi-heart',
+    route: 'wishlist'
 }];
 
 export const linkNames = [{
@@ -35,3 +38,15 @@ export const linkNames = [{
     badgeValue: 0,
     route: 'wishlist'
 }];
+
+export const validPromoCode = [
+    { 
+        couponName:'COUPON20', 
+        price: 20 
+    },{ 
+        couponName:'NEW100' , 
+        price: 100 
+}];
+
+export const taxPercent = 5;
+export const deliveryCost = 20;
