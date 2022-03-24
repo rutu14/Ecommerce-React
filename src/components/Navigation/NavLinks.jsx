@@ -2,16 +2,22 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { linkNames } from "../../data";
 import { useContext } from 'react';
-import { CartContext, UserContext } from '../../context';
+import { CartContext, UserContext, WishlistContext } from '../../context';
 
 const NavLinks = ( { avatarName } ) => {
     const { state, signout } = useContext(UserContext);
     const { tokenPresent } = state;
     const { state:cart } = useContext(CartContext);
-    const [ cartBadge, setCartBadge ] = useState(0)
+    const { state:wishlist } = useContext(WishlistContext);
+    const [ notificationBadge, setNotificationBadge ] = useState({ cart: 0, wishlist: 0})
+
     useEffect( () => {
-        setCartBadge(cart.cartInfo.length);
+        setNotificationBadge( { ...notificationBadge, cart: cart.cartInfo.length });
     },[cart.cartInfo])
+
+    useEffect( () => {
+        setNotificationBadge( { ...notificationBadge, wishlist: wishlist.wishlistInfo.length });
+    },[wishlist.wishlistInfo])
 
     const ShowDropdown = () => {
         return(
@@ -52,8 +58,8 @@ const NavLinks = ( { avatarName } ) => {
                                 <i className={linkValue.icon}></i>
                                 { linkValue.badgePresent 
                                 ? linkValue.route === 'cart' 
-                                    ? <span className="textButtonBadge nav-icon-badge">{cartBadge}</span> 
-                                    : <span className="textButtonBadge nav-icon-badge">0</span>
+                                    ? <span className="textButtonBadge nav-icon-badge">{notificationBadge.cart}</span> 
+                                    : <span className="textButtonBadge nav-icon-badge">{notificationBadge.wishlist}</span>
                                 : ''}
                             </button>
                         </Link>
