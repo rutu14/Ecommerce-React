@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { deliveryCost, taxPercent } from "../../data"
+import { deliveryCost, taxPercent } from "../../util/data"
 import { PromoInput } from "./PromoInput";
 
 const CartSummary = ({ cartProducts }) => {

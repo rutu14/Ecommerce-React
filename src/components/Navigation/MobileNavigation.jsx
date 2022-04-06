@@ -1,5 +1,5 @@
 import './nav.css';
-import { linkMobileNames } from '../../data';
+import { linkMobileNames } from '../../util/data';
 import { Link } from 'react-router-dom';
 import { useUserActions } from '../../context';
 

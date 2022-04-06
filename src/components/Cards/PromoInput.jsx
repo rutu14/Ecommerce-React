@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { validPromoCode } from "../../data";
+import { validPromoCode } from "../../util/data";
 
 const PromoInput = ({ disabledPointer, setDisabledPointer, otherPrices, setOtherPrices, setViewInput }) => {
     const [ promoInput, setPromoInput ] = useState('');

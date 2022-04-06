@@ -278,7 +278,7 @@ input[type=number] {
     }
     
     .cart-card-img {
-        width: 10rem;
+        width: 20rem;
         height: auto;
     }
 
@@ -323,8 +323,8 @@ input[type=number] {
     }
 
     .product-rating-cart {
-        transform: translate(3.3rem, 20rem);
-        padding: 4px 9px;
+        transform: translate(13.3rem, 23rem);
+        z-index: 3;
     }
 
     .cart-page-head{
