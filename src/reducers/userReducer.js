@@ -16,8 +16,8 @@ const userReducer = (state, action) => {
             return (state = {
                 ...state,
                 loader: false,
-                error: true,
-                errorMsg: action.payload
+                loginerror: true,
+                loginerrorMsg: action.payload
             });
         case "LOGOUT":
             return (state = {
@@ -33,15 +33,15 @@ const userReducer = (state, action) => {
 			return (state = {
                 ...state,
                 loader: false,
-                createdUser: action.payload,
+                userInfo: action.payload,
                 tokenPresent: true
             });
         case "SIGNUP_ERROR":
             return (state = {
                 ...state,
                 loader: false,
-                error: true,
-                errorMsg: action.payload
+                signuperror: true,
+                signuperrorMsg: action.payload
             });
 		default:
 			return state;

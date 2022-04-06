@@ -30,12 +30,6 @@ const cartReducer = (state, action) => {
                 error: true,
                 errorMsg: action.payload
             });
-        case "CART_ON_LOGOUT":
-            return (state = {
-                ...state,
-                loader: false,
-                cartInfo: [ ]
-            });
 		default:
 			return state;
         }

@@ -11,7 +11,7 @@
 
 .cart-list{
     display: grid;
-    grid-template-columns:  1fr 35rem;
+    grid-template-columns: 1fr 35rem;
     grid-template-areas:
     "product-grid aside"
     "product-grid aside"
@@ -32,13 +32,13 @@
 }
 
 .summary-header{
-    padding: 0 0 3rem;
+    padding: 0 0 2rem;
 }
 
 .summary-promocode{
     text-transform: capitalize;
     letter-spacing: unset;
-    color: var(--black);
+    color: var(--font-color);
     border: none;
     font-family: inherit;
 }
@@ -48,13 +48,14 @@
 }
 
 .promocode-content{
-    display: block;
+    display: inline-grid;
+    margin-top: -2.5rem;
 }
 
 .promocode-cross{
-    transform: translate(230px, -30px);
-    position: absolute;
+    transform: translate(11rem, -9px);
     font-size: 2.5rem;
+    color: var(--font-color);
 }
 
 .promocode-inp-grp{
@@ -90,7 +91,7 @@
 
 .summary-details{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .total-price{
@@ -104,7 +105,7 @@
 }
 
 .line-minor{
-    border-color: var(--disabled);
+    border-color: var(--minor-line-border,var(--disabled));
     background: var(--info-background);
 }
 
@@ -114,6 +115,11 @@
 
 .checkout-btn:hover{
     background: var(--info-background);
+}
+
+.coupon-reset{
+    font-size: 1.2rem;
+    margin: 0 auto;
 }
 
 .cart-grid{
@@ -127,7 +133,7 @@
 }
 
 .cart-card{
-    background: var(--white);
+    background: var(--card-bg,var(--white));
     width: 100%;
 }
 
@@ -138,6 +144,7 @@
 .cart-card-width{
     width: 30rem;
     height: fit-content;
+    background-color: var(--card-hover);
 }
 
 .quantity-input{
@@ -166,29 +173,37 @@ input[type=number] {
     width: 3rem;
     height: 3rem;
     margin: 0 8px;
-    background-color: var(--body-bg);
+    background-color: var(--quantity-btn,var(--body-bg));
     color: var(--info-text);
+}
+
+.card-content{
+    flex-direction: column;
+    grid-area: content;
 }
 
 .cart-action{
     flex-direction: column;
-    width: 20rem;
-    height: 10rem;
+    grid-area: quantity;
 }
 
 .card-primary-btn{
-    width: 50rem;
-    display: flex;
-    justify-content: space-around;
+    width: inherit;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    justify-items: center;
+    align-items: center;
 }
 
 .cart-action-btn{
     font-size: 1.4rem;
+    width: 70%;
+    height: 30%;
 }
 
 .delete-btn{
     background-color: var(--delete-btn);
-    color: var(--white);
+    color: var( --delete-btn-text,var(--white));
 }
 
 .delete-btn:hover{
@@ -196,6 +211,9 @@ input[type=number] {
 }
 
 .wishlist-btn{
+    border-color: var(--input-active);
+    color: var(--input-active);
+    background-color: var(--card-hover);
     border-color: var(--secondary-colour);
     color: var(--secondary-colour);
 }
@@ -205,10 +223,27 @@ input[type=number] {
     color: var(--info-text);
 }
 
-@media only screen and (max-width: 1200px) {
+.cart-section{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60% 40%;
+    grid-template-areas:
+        "content quantity"
+        "btn btn";
+    width: 50rem;
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 2560px) {
+    .checkout-btn {
+        width: 80%;
+        margin: 4rem auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     .cart-list{
         display: grid;
-        grid-template-columns:  1fr;
+        grid-template-columns: 1fr;
         grid-template-areas:
         "product-grid"
         "product-grid"
@@ -237,9 +272,18 @@ input[type=number] {
         margin: auto;
         flex-direction: column;
     }
+
+    .cart-card {
+        height: fit-content;
+    }
     
     .cart-card-img {
         width: 10rem;
+        height: auto;
+    }
+
+    .cart-section{
+        width: 22rem;
     }
 
     .cart-card-width{
@@ -259,21 +303,13 @@ input[type=number] {
     }
 
     .card-primary-btn {
-        width: auto;
-        flex-direction: column;
-        margin: 0 2.5rem;
-    }
-
-    .card-title-box {
-        padding: 1rem;
+        grid-template-columns: none;
+        grid-template-rows: repeat(2, 50%);
     }
 
     .cart-action {
-        flex-direction: column;
-        width: fit-content;
-        height: fit-content;
-        position: absolute;
-    transform: translate(200px, 0);
+        justify-content: flex-start;
+        padding: 2rem;
     }
 
     .quantity-inp {
@@ -286,8 +322,9 @@ input[type=number] {
         margin: 0 5px;
     }
 
-    .product-rating {
-        transform: translate(4.5rem, 16rem);
+    .product-rating-cart {
+        transform: translate(3.3rem, 20rem);
+        padding: 4px 9px;
     }
 
     .cart-page-head{

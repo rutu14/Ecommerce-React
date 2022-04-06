@@ -9,13 +9,62 @@
     --input-box:#00000047;
     --nav-colour:#3d556c;
     --box-shadow: #0000000d;
+    --top-nav: var(--box-shadow);
     --delete-btn: #f88484;
     --wishlist-shadow:#00000080;
     --outofstockbg:#f0f8ffa3;
     --promosucess: #0b970b;
     --promoerror:#cc1a1a;
+    --card-subtitle: #0000008a;
+    --font-color:var(--black);
+    --mobile-nav-bg:var(--success-background);
 
     --site-name-font: 'Dekko', cursive;
+}
+
+[data-theme="dark"] {
+    --body-bg:#121218d9;
+    --font-color:var(--info-background);
+    --input-box: #f6f8ff8a;
+    --btn-hover:#dc5d5f;
+    --top-nav:#231d2a;
+    --nav-colour:#a6bacd;
+    --card-hover: #1b1d20;
+    --delete-btn:#9c1515;
+    --delete-btn-text:#dfe5ee;
+    --card-bg:#191b1deb;
+    --card-subtitle: var(--info-background);
+    --promosucess: #a3e8a3;
+    --promoerror:#dc5858;
+    --btn-bg:#2f2f34d9;
+    --sale-price:#c9d3dc;
+    --quantity-btn:#47474efa;
+    --mobile-nav-bg:#231e24;
+    --image-text:#1d1830;
+    --input-bg:#1e1e1f30;
+    --login-box:#1a1b1c63;
+    --minor-line-border:#35353a;
+    --btn-link-hover:#aa9bb8;
+}
+
+[data-theme="dark"] img {
+    filter: brightness(.8) contrast(1.2);
+}
+
+[data-theme="dark"] .product-rating,
+[data-theme="dark"] .title-color, 
+[data-theme="dark"] .product-btns,
+[data-theme="dark"] .wishlist-btns, 
+[data-theme="dark"] .discount-badge,
+[data-theme="dark"] .dropdown-menu,
+[data-theme="dark"] .out-of-stock {
+    z-index: 3;
+}
+
+[data-theme="dark"] .wishlist-btn{
+    border-color: var(--input-active);
+    color: var(--input-active);
+    background-color: var(--card-hover);
 }
 
 body{
@@ -31,11 +80,18 @@ main{
 }
 
 .alert{
-    position: absolute;
-    z-index: 2;
+    position: fixed;
+    z-index: 4;
 }
 
 .close-btn{
     color: var(--black);
 }
 
+.font-color{
+    color: var(--font-color);
+}
+
+.btn-link:hover {
+    color: var(--btn-link-hover);
+}

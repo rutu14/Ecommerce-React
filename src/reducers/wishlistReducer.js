@@ -30,12 +30,6 @@ const wishlistReducer = (state, action) => {
                 error: true,
                 errorMsg: action.payload
             });
-        case "WISHLIST_ON_LOGOUT":
-            return (state = {
-                ...state,
-                loader: false,
-                wishlistInfo: [ ]
-            });
 		default:
 			return state;
         }

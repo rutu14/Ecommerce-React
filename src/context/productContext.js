@@ -32,4 +32,6 @@ const ProductProvider = ({ children }) => {
     
 }
 
-export { ProductProvider, ProductContext };
+const useProductActions = () => useContext(ProductContext);
+
+export { ProductProvider, useProductActions };

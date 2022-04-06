@@ -1,5 +1,5 @@
 import axios from "axios"
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { wishlistReducer } from "../reducers";
 
 const defaultValue = {
@@ -62,11 +62,15 @@ const WishlistProvider = ({ children }) => {
             dispatch({ type: "WISHLIST_ERROR", payload: error })
         }
     }
+
+    let wishlistQty = state.wishlistInfo.length;
         
-    return <WishlistContext.Provider value={ { state , dispatch, getWishlist , addWishlist, deleteWishlist } }>
+    return <WishlistContext.Provider value={ { state , wishlistQty, getWishlist , addWishlist, deleteWishlist } }>
                 {children}
             </WishlistContext.Provider>
     
 }
 
-export { WishlistProvider, WishlistContext };
+const useWishlistActions = () => useContext(WishlistContext);
+
+export { WishlistProvider, useWishlistActions };

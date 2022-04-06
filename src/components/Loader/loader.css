@@ -12,11 +12,7 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-/**
- * ==============================================
- * Dot Pulse
- * ==============================================
- */
+/* DOTS */
 .stage {
   display: flex;
   justify-content: center;

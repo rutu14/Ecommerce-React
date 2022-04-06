@@ -8,11 +8,11 @@ import { CartProvider, CategoryProvider, ProductProvider, UserProvider, Wishlist
 function App() {
   return (
 		<>
-		<UserProvider>
+		{/* <UserProvider>
 		<CartProvider>
 		<WishlistProvider>
 		<ProductProvider>
-		<CategoryProvider>
+		<CategoryProvider> */}
 			<Navigation />
 			<Routes>
 				<Route path='home' element={<LandingPage/>}/>
@@ -26,11 +26,11 @@ function App() {
 				<Route path='*' element={<LandingPage/>}/>
 				<Route path='mock' element={<Mockman/>}/>
 			</Routes>
-		</CategoryProvider>
+		{/* </CategoryProvider>
 		</ProductProvider>
 		</WishlistProvider>
 		</CartProvider>
-		</UserProvider>
+		</UserProvider> */}
 		</>
 
   );

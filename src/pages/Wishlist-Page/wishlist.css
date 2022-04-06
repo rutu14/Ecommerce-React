@@ -4,8 +4,9 @@
     padding: 4rem;
 }
 
-.wishlist-card{
+.wishlist-card, .wishlist-card-img{
     width: 21rem;
+    background-color: var(--card-bg,var(--white));
 }
 
 .wishlist-icon-btn{
@@ -23,13 +24,13 @@
 
 .wishlist-btns{
     display: none;
-    width: 21rem;
-    height: 8.6rem;   
     align-items: center;
-    transform: translate(0, 19rem);
-    position: absolute;
     justify-content: space-evenly;
-    background: var(--white);
+    width: 21rem;
+    height: 9.6rem;
+    transform: translate(0, 17rem);
+    position: absolute;
+    background: var(--card-hover,var(--white));
     transition: all .2s ease-out;
     z-index: 1;
 }

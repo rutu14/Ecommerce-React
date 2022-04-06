@@ -1,97 +1,73 @@
 import { useEffect, useState } from "react"
-import { deliveryCost, taxPercent, validPromoCode } from "../../data"
+import { deliveryCost, taxPercent } from "../../data"
+import { PromoInput } from "./PromoInput";
 
-const CartSummary = ( subTotal ) => {
-    
-    const [ otherPrices, setOtherPrices ] = useState({ delivery: 0, coupon: 0, tax: 0, total: 0 });
+const CartSummary = ({ cartProducts }) => {
 
-    useEffect( () => {
-        setOtherPrices( { ...otherPrices, delivery: deliveryCost, tax: (( taxPercent / 100 ) * subTotal.subTotal), total: ( subTotal.subTotal + otherPrices.tax - otherPrices.coupon + otherPrices.delivery) });
-    },[subTotal, otherPrices.coupon])
-    
-    const [ promoHelper, setPromoHelper ] = useState('');
+    const [ disabledPointer, setDisabledPointer ] = useState('');
     const [ viewInput, setViewInput ] = useState(false);
     const openInput = () => setViewInput(true);
-    const closeInput = () => setViewInput(false);
-
-    const subTotalPrice = subTotal.subTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
-    const couponPrice = otherPrices.coupon.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
-    const deliveryPrice = otherPrices.delivery.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
-    const taxPrice = otherPrices.tax.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
-    const totalPrice = otherPrices.total.toLocaleString('en-IN', { style: 'currency', currency: 'INR',maximumSignificantDigits: 3 })
-
-    const PromoInput = () => {
-        const [ promoInput, setPromoInput ] = useState('')
-        const checkPromoCode = () => {
-            const verify = validPromoCode.find((codes) => promoInput === codes.couponName);
-            if(verify !== undefined) {
-                setOtherPrices({ ...otherPrices, coupon: verify.price })
-                setPromoHelper("Verified") 
-            }else{ setPromoHelper("NotVerified") }
-        }
-
-        const PromoHelper = () => {
-            if ( promoHelper === "Verified" ){
-                return( <div className="text4 regular text-center verified"> 
-                            PromoCode Verified  
-                            <i class="bi bi-check2-circle verified"></i>
-                        </div> );
-            }
-            if ( promoHelper === "NotVerified" ){
-                return( <div className="text4 regular text-center notverified"> 
-                            PromoCode Not Verified 
-                            <i class="bi bi-x-circle notverified"></i>
-                        </div> );
-            }
-            return( <></> )
-        }
-        return(
-            <section class="promocode-content m-t5">
-                <button class="icon-button promocode-cross" onClick={closeInput}><i class="bi bi-x"></i></button>  
-                <div class="input-grp promocode-inp-grp">
-                    <input type="text" class="input-grp-right text-input input-width inp-border promocode-inp" value={promoInput} onChange={(e)=>setPromoInput(e.target.value)} />
-                    <button class="icon-button input-grp-btn btn-right inp-border promocode-btn" onClick={checkPromoCode}><i class="bi bi-search"></i></button>
-                </div> 
-                <PromoHelper/>                  
-            </section>
-        );
+    const resettingCoupon = () => {
+        setOtherPrices({ ...otherPrices, coupon: 0 });
+        setDisabledPointer('');
     }
+    const ResetCoupon = () => (<a className="btn-link coupon-reset font-color" onClick={resettingCoupon} role="button">Reset Coupon</a>)
+    
+    const [ otherPrices, setOtherPrices ] = useState({ delivery: 0, coupon: 0, tax: 0, total: 0 });
+    const intialValue = { subTotal: 0 }
+
+    const calSubTotal = cartProducts.reduce(( accumulator, cartProduct ) => ({
+        ...accumulator,
+        subTotal: cartProduct.onSale ? accumulator.subTotal + ( cartProduct.salePrice * cartProduct.qty ) : accumulator.subTotal + ( cartProduct.price * cartProduct.qty )
+    }), intialValue)
+
+    useEffect( () =>{
+        setOtherPrices( { ...otherPrices,  delivery: deliveryCost, tax: (( taxPercent / 100 ) * calSubTotal.subTotal), total: ( calSubTotal.subTotal + otherPrices.delivery + otherPrices.tax - otherPrices.coupon) });
+    },[ calSubTotal.subTotal, otherPrices.coupon, otherPrices.tax ])
+    
+    const subTotalPrice = calSubTotal.subTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })
+    const couponPrice = otherPrices.coupon.toLocaleString('en-IN', { style: 'currency', currency: 'INR'})
+    const deliveryPrice = otherPrices.delivery.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })
+    const taxPrice = otherPrices.tax.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })
+    const totalPrice = otherPrices.total.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })
 
     return (
-        <aside class="cart-summary">
-            <section class="summary-header">
-                <h4 class="heading3 medium text-center">Checkout</h4>
+        <aside className="cart-summary">
+          
+            <section className="summary-header">
+                <h4 className="heading3 medium text-center font-color">Checkout</h4>
             </section>
 
-            <button class="btn btn-link td heading4 medium text-center summary-promocode" onClick={openInput}>Have A Promo Code?</button>
-            { viewInput ? <PromoInput/> : " " }
+            <button className="btn btn-link td heading4 medium text-center summary-promocode font-color" onClick={openInput}>Have A Promo Code?</button>
+            { viewInput ? <PromoInput disabledPointer={disabledPointer} setDisabledPointer={setDisabledPointer} otherPrices={otherPrices} setOtherPrices={setOtherPrices} setViewInput={setViewInput} /> : " " }
+            
+            <div className="summary-line line-minor m-t6"> </div>
 
-            <div class="summary-line line-minor m-t6"> </div>
-
-            <section class="summary-content m-t5">
-                <section class="summary-details">
-                    <h6 class="text4 regular">Subtotal : </h6>     
-                    <h6 class="text4 regular">{subTotalPrice}</h6>   
+            <section className="summary-content m-t5 font-color">
+                <section className="summary-details">
+                    <h6 className="text4 regular">Subtotal : </h6>     
+                    <h6 className="text4 regular">{subTotalPrice}</h6>   
                 </section>
-                <section class="summary-details">
-                    <h6 class="text4 regular">Coupon : </h6>     
-                    <h6 class="text4 regular">- {couponPrice}</h6>    
+                <section className="summary-details">
+                    <h6 className="text4 regular">Coupon : </h6>     
+                    <h6 className="text4 regular">- {couponPrice}</h6>    
                 </section> 
-                <section class="summary-details">
-                    <h6 class="text4 regular">Delivery : </h6>     
-                    <h6 class="text4 regular">+ {deliveryPrice}</h6>  
+                <section className="summary-details">
+                    <h6 className="text4 regular">Delivery : </h6>     
+                    <h6 className="text4 regular">+ {deliveryPrice}</h6>  
                 </section>
-                <section class="summary-details">
-                    <h6 class="text4 regular">Taxes ({taxPercent}%) : </h6>     
-                    <h6 class="text4 regular">+ {taxPrice}</h6>    
+                <section className="summary-details">
+                    <h6 className="text4 regular">Taxes ({taxPercent}%) : </h6>     
+                    <h6 className="text4 regular">+ {taxPrice}</h6>    
                 </section>                       
             </section>
-            <div class="summary-line m-t5"> </div>
-            <section class="summary-details total-price m-t5">
-                <h6 class="text3 regular">Total : </h6>     
-                <h6 class="text3 regular">{totalPrice}</h6>    
+            <div className="summary-line m-t5"> </div>
+            <section className="summary-details font-color total-price m-t5">
+                <h6 className="text3 regular">Total : </h6>     
+                <h6 className="text3 regular">{totalPrice}</h6>    
             </section>
-            <button class="btn btn-primary text-uppercase m-t30 checkout-btn" type="button">Check Out</button>      
+            <button className="btn btn-primary text-uppercase m-t30 checkout-btn" type="button">Check Out</button>      
+            {otherPrices.coupon !== 0 ? <ResetCoupon/> : " "}
         </aside>
     );
 }

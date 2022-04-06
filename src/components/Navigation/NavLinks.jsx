@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { linkNames } from "../../data";
-import { useContext } from 'react';
-import { CartContext, UserContext, WishlistContext } from '../../context';
+import { useUserActions, useWishlistActions, useCartActions } from '../../context';
+import { ThemeToggle } from '../index';
+
 
 const NavLinks = ( { avatarName } ) => {
-    const { state, signout } = useContext(UserContext);
+    const { state, signout } = useUserActions();
     const { tokenPresent } = state;
-    const { state:cart } = useContext(CartContext);
-    const { state:wishlist } = useContext(WishlistContext);
-    const [ notificationBadge, setNotificationBadge ] = useState({ cart: 0, wishlist: 0})
+    const { cartQty } = useCartActions();
+    const { wishlistQty } = useWishlistActions();
+    const [ notificationBadge, setNotificationBadge ] = useState({ cart: 0, wishlist: 0 })
 
     useEffect( () => {
-        setNotificationBadge( { ...notificationBadge, cart: cart.cartInfo.length });
-    },[cart.cartInfo])
+        setNotificationBadge( { ...notificationBadge, cart: cartQty.quantity });
+    },[cartQty.quantity])
 
     useEffect( () => {
-        setNotificationBadge( { ...notificationBadge, wishlist: wishlist.wishlistInfo.length });
-    },[wishlist.wishlistInfo])
+        setNotificationBadge( { ...notificationBadge, wishlist: wishlistQty });
+    },[wishlistQty])
 
     const ShowDropdown = () => {
         return(
@@ -43,7 +44,7 @@ const NavLinks = ( { avatarName } ) => {
     
     const LoginButton = () => {
         return (
-            <Link to={'login'} className="btn btn-primary outline login-sign" type="button">Login</Link> 
+            <Link to={'login'} className="btn btn-primary outline td login-sign" type="button">Login</Link> 
         );
     }
 
@@ -51,12 +52,13 @@ const NavLinks = ( { avatarName } ) => {
         <div className="nav-items">
             <nav className="icon-section">
                 <ul>
+                    <li> <ThemeToggle customClass={'desktop-toggle'}/> </li>
                     {linkNames.map((linkValue) => (
                         <li key={linkValue.id}>
                         <Link to={linkValue.route} className="btn-link" role="button">
-                            <button className="button-icon nav-icon cp">
+                            <button className="button-icon nav-icon font-color cp">
                                 <i className={linkValue.icon}></i>
-                                { linkValue.badgePresent 
+                                { linkValue.badgePresent && tokenPresent
                                 ? linkValue.route === 'cart' 
                                     ? <span className="textButtonBadge nav-icon-badge">{notificationBadge.cart}</span> 
                                     : <span className="textButtonBadge nav-icon-badge">{notificationBadge.wishlist}</span>
@@ -67,6 +69,7 @@ const NavLinks = ( { avatarName } ) => {
                     ))}
                 </ul>
             </nav>
+            
             {tokenPresent ? <DropdownAvatar/> : <LoginButton/> }            
         </div>
     );

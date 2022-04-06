@@ -1,16 +1,17 @@
 import './nav.css';
 import { linkMobileNames } from '../../data';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../context';
-import { useContext } from 'react';
+import { useUserActions } from '../../context';
 
 const MobileNavigation = () => {
-    const { state, signout } = useContext(UserContext);
+    const { state, signout } = useUserActions();
     const { tokenPresent } = state;
     return(
         <div className="mobile-nav">
             <input type="checkbox" />
-            <span></span><span></span><span></span>
+            <span className='hamburger'></span>
+            <span className='hamburger'></span>
+            <span className='hamburger'></span>
                 <ul className="menu-nav">  
                     {linkMobileNames.map((linkValue) => (
                     <li className="no-list" key={linkValue.id}> 

@@ -1,14 +1,13 @@
 
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CategoryContext } from "../../context";
+import { useCategoryActions } from "../../context";
 import { SpinLoader } from "../index";
 
 const CategorySection = () => {
-    const { category } = useContext(CategoryContext);   
+    const { category } = useCategoryActions();   
     return (
       <>
-        <h3 id="category" className="heading2 medium text-center m20">Category</h3>
+        <h3 id="category" className="heading2 medium text-center m20 font-color">Category</h3>
         { category.loader && <SpinLoader/>}
         <section className="grid-3-cols below-hero">
             {category.info && category.info.map((item) => (

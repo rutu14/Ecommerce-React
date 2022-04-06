@@ -24,7 +24,7 @@
 }
 
 .title-color{
-    color: var(--info-background);
+    color: var(--image-text,var(--info-background));
     background-color: var(--input-box);
 }
 

@@ -32,4 +32,6 @@ const CategoryProvider = ({ children }) => {
     
 }
 
-export { CategoryProvider, CategoryContext };
+const useCategoryActions = () => useContext(CategoryContext);
+
+export { CategoryProvider, useCategoryActions };

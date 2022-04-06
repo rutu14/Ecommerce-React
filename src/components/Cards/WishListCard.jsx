@@ -27,7 +27,7 @@ const WishListCard = ({ addCart, deleteWishlist, wishlistValue }) => {
                 <i className="bi bi-stars rating-icon"></i>{rating}
             </div>
             {onSale ? (<div className="discount-badge">{discount.toFixed(0)}% OFF</div>) : " " }
-            <img class="card-img card-img-border product-card-img" alt={`${brand}-${title}`} src={image} />
+            <img class="card-img card-img-border wishlist-card-img" alt={`${brand}-${title}`} src={image} />
             <button class="btn wishlist-icon-btn cp" onClick={deleteWislistItem}>
                 <i class="bi bi-suit-heart-fill wishlist-icon"></i> 
             </button>

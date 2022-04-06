@@ -1,7 +1,8 @@
-import { CategoryProvider, CategoryContext } from "./categoryContext";
-import { ProductProvider, ProductContext  } from "./productContext";
-import { UserProvider, UserContext } from "./userContext";
-import { CartContext, CartProvider } from "./cartContext";
-import { WishlistContext, WishlistProvider } from "./wishlistContext";
+import { CategoryProvider, useCategoryActions } from "./categoryContext";
+import { ProductProvider, useProductActions  } from "./productContext";
+import { UserProvider, useUserActions } from "./userContext";
+import { CartProvider, useCartActions } from "./cartContext";
+import { WishlistProvider, useWishlistActions } from "./wishlistContext";
+import { FilterProvider, useFilters } from "./filterContext";
 
-export { CategoryProvider, CategoryContext, ProductProvider, ProductContext,  UserProvider, UserContext, CartContext, CartProvider, WishlistContext, WishlistProvider }
+export { CategoryProvider, useCategoryActions, ProductProvider, useProductActions,  UserProvider, useUserActions, CartProvider, useCartActions, WishlistProvider, useWishlistActions, FilterProvider, useFilters }

@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
-import { UserContext } from "../../context";
+import { useUserActions } from "../../context";
 
 const ProductCard = ({cardValue, addCart, addWishlist, handleOutOfStock}) => {   
     const navigate = useNavigate();
-    const { state } = useContext(UserContext);
+    const { state } = useUserActions();
     const { tokenPresent } = state;
     
     const addtoCart = () => {

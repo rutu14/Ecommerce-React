@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import { useCategoryActions } from "../../context";
 import { SpinLoader } from "../index";
 
-const FilterSection = ( {state , dispatch}  ) => {
+const MobileFilter = ( {state , dispatch, close}  ) => {
     const { categoryName } = useParams(); 
 	let navigate = useNavigate();
 	const [ sliderValue, setSliderValue ] = useState(90)
@@ -11,11 +11,19 @@ const FilterSection = ( {state , dispatch}  ) => {
 	const { loader, info, error } = category;
     const [ preDeclared, setPreDeclared ] = useState( categoryName );
     const { showInventory, rangeBy, showCategory, sortBy } = state;
+    const [ searchInput, setSearchInput ] = useState(" ");
+
+    const handleSearchData = () => {
+        dispatch({ type:"SEARCH", payload: searchInput });
+        close();
+    }
 
 	const handleFormReset = (e) =>{
 		dispatch({ type: "CLEAR" })
 		setSliderValue(90)
-        navigate('/product', {replace: true});
+        setSearchInput("");
+
+        //navigate('/product', {replace: true});
     }
     
     useEffect( () => {
@@ -25,7 +33,8 @@ const FilterSection = ( {state , dispatch}  ) => {
     },[])
     
     return(
-        <aside className='filter-section on-mobile'>
+        <aside className='filter-section mobile-filter-section'>
+            <button className="icon-button font-color " onClick={close} ><i className="bi bi-x"></i></button>
             <form>
             <section className="filter-header">
                 <h4 className="heading3 medium font-color">Filters</h4>
@@ -84,7 +93,7 @@ const FilterSection = ( {state , dispatch}  ) => {
                 }
             </section>
 
-            <h4  className="heading4 filter-section-heading medium m-t10 font-color">Price-Range</h4>
+            <h4 className="heading4 filter-section-heading medium m-t10 font-color">Price-Range</h4>
             <section className="filter-1 m-t5 font-color">
                 <div className="slider-grp">
 					<span className="range-label">₹{sliderValue}</span>
@@ -96,10 +105,16 @@ const FilterSection = ( {state , dispatch}  ) => {
 					  className="slider" list="label"/>                                      
                 </div>    
             </section>
+        
         </form>
+        <h4 className="heading4 filter-section-heading medium m-t10 font-color">Search By Brand</h4>
+            <section className="m-t5 input-grp input-pos search-on-mobile-grp">
+            <input type="text" value={searchInput} onChange={ e => setSearchInput(e.target.value) } className="input-grp-right text-input input-width search-on-mobile inp-border" />
+            <button className="icon-button input-grp-btn btn-right inp-border" onClick={handleSearchData} ><i className="bi bi-search"></i></button>
+            </section> 
         </aside>
     );
 }
 
-export { FilterSection }
+export { MobileFilter }
 

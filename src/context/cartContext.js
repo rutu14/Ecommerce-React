@@ -1,10 +1,10 @@
 import axios from "axios"
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { cartReducer } from "../reducers";
 
 const defaultValue = {
     loader: false,
-    cartInfo: [ ],
+    cartInfo: [],
     productAdded: false,
     error: false,
     errorMsg: null
@@ -24,7 +24,7 @@ const CartProvider = ({ children }) => {
             const { data } = await axios.get( '/api/user/cart', config );
             dispatch({ type: "CART_SUCCESS", payload: data.cart })          
         } catch (error) {
-            dispatch({ type: "CART_ERROR", payload: error.response.data.errors[0] })
+            dispatch({ type: "CART_ERROR", payload: error.response.data })
         }
     }
 
@@ -85,11 +85,20 @@ const CartProvider = ({ children }) => {
             dispatch({ type: "CART_ERROR", payload: error.response.data.errors[0] })
         }
     }
-        
-    return <CartContext.Provider value={ { state , dispatch, getCart , addCart, deleteCart, addQty, subQty } }>
+
+    const cartQty = state.cartInfo.reduce(( accumulator, cartProduct ) => ({
+        ...accumulator,
+        quantity: accumulator.quantity + cartProduct.qty 
+    }), { quantity: 0 })
+
+    const matchUndo = () => dispatch({ type: "CART_SUCCESS_MATCH_UNDO" })
+
+    return <CartContext.Provider value={ { state, matchUndo, cartQty, getCart , addCart, deleteCart, addQty, subQty } }>
                 {children}
             </CartContext.Provider>
     
 }
 
-export { CartProvider, CartContext };
+const useCartActions = () => useContext(CartContext);
+
+export { CartProvider, useCartActions };
