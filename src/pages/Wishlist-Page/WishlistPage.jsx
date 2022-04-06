@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import Images from "../../asset/image";
 import { WishListCard } from "../../components";
+import { usePagination } from '../../util/Pagination';
 import { useCartActions, useUserActions, useWishlistActions } from "../../context";
 import './wishlist.css'
+import { itemsPerPageWishlist } from "../../util/data";
 
 const WishlistPage = () => {
     const { state } = useUserActions();
@@ -10,9 +12,32 @@ const WishlistPage = () => {
     const { state:wishlistState, getWishlist, deleteWishlist } = useWishlistActions();  
     const { addCart } = useCartActions();  
 
+    const { pageChange, prev, next, prevGrp, nextGrp, pageData, getPaginationGroup} = usePagination(wishlistState.wishlistInfo, itemsPerPageWishlist);
+    const handleChange = (e) => pageChange(e.target.value);
+
+    useEffect( () =>{
+        if( pageData().length === 0 ){
+            prev();
+        }
+    },[pageData()])
+
     useEffect(()=>{
         getWishlist()
     },[ ])
+
+    const Pagination = () => {
+            return(
+                <section className='pagination-wrapper'>        
+                    <button className="icon-button btn font-color cp" onClick={prevGrp}><i className="bi bi-chevron-bar-left"></i></button>                                    
+                    <button className='icon-button btn font-color cp' onClick={prev}><i className="bi bi-chevron-left"></i></button>
+                    { getPaginationGroup().map((item, index) => (
+                        <button className='text3 btn pagination-btns cp' value={item} onClick={handleChange} key={index}>{item}</button>
+                    ))}
+                    <button className='icon-button btn font-color cp' onClick={next}><i className="bi bi-chevron-right"></i></button>
+                    <button className='icon-button btn font-color cp' onClick={nextGrp}><i className="bi bi-chevron-bar-right"></i></button>
+                </section>
+            )
+    }
 
     return(
     <>
@@ -25,10 +50,12 @@ const WishlistPage = () => {
                     </svg>
                 </h3>
                 <section className="wishlist-grid grid-4-cols grid-mobile"> 
-                        {wishlistState.wishlistInfo && wishlistState.wishlistInfo.map(( wishlistValue ) => (
-                            <WishListCard addCart={addCart} deleteWishlist={deleteWishlist} wishlistValue={wishlistValue}/>
-                        ))}
+                    {/* {wishlistState.wishlistInfo && wishlistState.wishlistInfo.map(( wishlistValue ) => ( */}
+                    {pageData() && pageData().map(( wishlistValue ) => ( 
+                        <WishListCard addCart={addCart} deleteWishlist={deleteWishlist} wishlistValue={wishlistValue}/>
+                    ))}
                 </section>
+                <Pagination/>
                 </main> )
             : ( <h3 className="heading2 medium m-t100 text-center font-color">
                     Add Items To WishList✨
