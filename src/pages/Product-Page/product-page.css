@@ -192,6 +192,10 @@
     border-color: var(--font-color);
 }
 
+.mobile-section{
+    display: none;
+}
+
 @media only screen and (min-width: 1500px) {
     .product-grid{
         grid-template-columns: repeat(5, 1fr);
@@ -211,6 +215,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .mobile-section{
+        display: block;
+    }
+
     .mobile-filter-section {
         grid-area: mobile-filter;
         background-color: var(--card-hover,var(--disabled-inner));
@@ -263,9 +271,10 @@
     .product-btns {
         display: flex;
         flex-direction: column;
-        transform: translate(11rem, 20rem);
+        transform: translate(17rem, 20rem);
         position: absolute;
         justify-content: space-evenly;
         transition: unset;
+        width: fit-content;
     }
 }

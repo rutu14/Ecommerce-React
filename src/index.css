@@ -95,3 +95,18 @@ main{
 .btn-link:hover {
     color: var(--btn-link-hover);
 }
+
+.pagination-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.pagination-btns{
+    border-color: var(--font-color);
+    color: var(--font-color);
+    margin: 0 1rem;
+    min-width: fit-content;
+    background-color: var(--card-hover);
+}

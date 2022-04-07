@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { linkNames } from "../../data";
+import { linkNames } from "../../util/data";
 import { useUserActions, useWishlistActions, useCartActions } from '../../context';
 import { ThemeToggle } from '../index';
 
