@@ -50,9 +50,8 @@ const WishlistPage = () => {
                     </svg>
                 </h3>
                 <section className="wishlist-grid grid-4-cols grid-mobile"> 
-                    {/* {wishlistState.wishlistInfo && wishlistState.wishlistInfo.map(( wishlistValue ) => ( */}
                     {pageData() && pageData().map(( wishlistValue ) => ( 
-                        <WishListCard addCart={addCart} deleteWishlist={deleteWishlist} wishlistValue={wishlistValue}/>
+                        <WishListCard key={wishlistValue._id} addCart={addCart} deleteWishlist={deleteWishlist} wishlistValue={wishlistValue}/>
                     ))}
                 </section>
                 <Pagination/>

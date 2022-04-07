@@ -1,5 +1,4 @@
-import axios from "axios"
-import React, { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { filterReducer } from "../reducers";
 import { useProductActions } from "./productContext";
 
@@ -21,9 +20,7 @@ const FilterProvider = ({ children }) => {
     const [ state, dispatch ] = useReducer(filterReducer, defaultValue);
 
     const getSearchedData = (productList, searchFor) => {
-        console.log(searchFor)
         if( searchFor !== null ){
-            console.log(typeof(searchFor))
             return productList.filter( prd => prd.brand.toLowerCase() === searchFor.toLowerCase() );
         }
         return productList;
@@ -39,7 +36,7 @@ const FilterProvider = ({ children }) => {
         return productList;
     }
 
-	const getCategroyData = (productList, showCategory) => {
+	const getCategoryData = (productList, showCategory) => {
         if( showCategory.length!==0 ){
             return productList.filter( prd => showCategory.includes( prd.categoryName ) );
         }      
@@ -47,7 +44,6 @@ const FilterProvider = ({ children }) => {
     }
 
 	const getRangeData = (productList, rangeBy ) => {
-        console.log( rangeBy)
         return productList.filter( prd => prd.price >= rangeBy );
     }
     
@@ -56,13 +52,10 @@ const FilterProvider = ({ children }) => {
     }
     
     const sortedData = getSortedData( products, state.sortBy);
-    const categoryData = getCategroyData(sortedData, state.showCategory);
-    console.log(categoryData)
+    const categoryData = getCategoryData(sortedData, state.showCategory);
 	const sliderData = getRangeData(categoryData, state.rangeBy);
     const searchData = getSearchedData( sliderData, state.searchFor);
-    console.log( searchData)
     const inventoryData = getFilteredData( searchData , state.showInventory );
-    console.log( inventoryData)
 
     return <FilterContext.Provider value={ { searchData, inventoryData, state, dispatch } }>
                 {children}

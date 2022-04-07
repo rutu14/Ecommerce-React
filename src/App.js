@@ -1,18 +1,14 @@
 import Mockman from 'mockman-js';
 import { Route, Routes } from 'react-router';
-import './App.css';
-import { CategorySection, Navigation } from './components/index';
+import { Navigation } from './components';
 import { CartPage, LandingPage, LoginPage, ProductPage, SignUpPage, WishlistPage } from './pages';
-import { CartProvider, CategoryProvider, ProductProvider, UserProvider, WishlistProvider  } from './context';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
-  return (
+	const storedTheme = localStorage.getItem("theme");
+  	
+	return (
 		<>
-		{/* <UserProvider>
-		<CartProvider>
-		<WishlistProvider>
-		<ProductProvider>
-		<CategoryProvider> */}
 			<Navigation />
 			<Routes>
 				<Route path='home' element={<LandingPage/>}/>
@@ -26,13 +22,8 @@ function App() {
 				<Route path='*' element={<LandingPage/>}/>
 				<Route path='mock' element={<Mockman/>}/>
 			</Routes>
-		{/* </CategoryProvider>
-		</ProductProvider>
-		</WishlistProvider>
-		</CartProvider>
-		</UserProvider> */}
+			<ToastContainer theme={storedTheme} position="bottom-center" autoClose={2000} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover/>
 		</>
-
   );
 }
 

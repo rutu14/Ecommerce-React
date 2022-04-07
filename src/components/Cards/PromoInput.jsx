@@ -17,7 +17,6 @@ const PromoInput = ({ disabledPointer, setDisabledPointer, otherPrices, setOther
     }
     useEffect( () => {
         if( otherPrices.coupon !== 0 || promoHelper === "Verified" ){
-            console.log(otherPrices.coupon)
             setDisabledInput(true);
             setDisabledPointer('cna')
         }

@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const CartCard = ({ deleteCart, addQty, subQty, addWishlist, cartValue }) => {
     const{
         _id,
@@ -18,6 +20,7 @@ const CartCard = ({ deleteCart, addQty, subQty, addWishlist, cartValue }) => {
     const addToWishList = () => {
         addWishlist(cartValue);
         deleteCart(_id);
+        toast.info("Moved to Wishlist");
     }
 
     const deleteCartItem = () => {

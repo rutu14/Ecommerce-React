@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { toast } from "react-toastify";
 import { deliveryCost, taxPercent } from "../../util/data"
 import { PromoInput } from "./PromoInput";
 
@@ -10,6 +11,7 @@ const CartSummary = ({ cartProducts }) => {
     const resettingCoupon = () => {
         setOtherPrices({ ...otherPrices, coupon: 0 });
         setDisabledPointer('');
+        toast.info("Coupon Value Resetted!");
     }
     const ResetCoupon = () => (<a className="btn-link coupon-reset font-color" onClick={resettingCoupon} role="button">Reset Coupon</a>)
     

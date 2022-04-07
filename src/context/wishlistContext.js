@@ -22,7 +22,6 @@ const WishlistProvider = ({ children }) => {
             const token = localStorage.getItem("token");
             const config = { headers: { 'authorization': token } };
             const { data } = await axios.get( '/api/user/wishlist', config );
-            console.log( data )
             dispatch({ type: "WISHLIST_SUCCESS", payload: data.wishlist })          
         } catch (error) {
             dispatch({ type: "WISHLIST_ERROR", payload: error })
@@ -64,8 +63,10 @@ const WishlistProvider = ({ children }) => {
     }
 
     let wishlistQty = state.wishlistInfo.length;
+
+    const matchWishlistUndo = () => dispatch({ type: "WISHLIST_SUCCESS_MATCH_UNDO" });
         
-    return <WishlistContext.Provider value={ { state , wishlistQty, getWishlist , addWishlist, deleteWishlist } }>
+    return <WishlistContext.Provider value={ { state , wishlistQty, matchWishlistUndo, getWishlist , addWishlist, deleteWishlist } }>
                 {children}
             </WishlistContext.Provider>
     

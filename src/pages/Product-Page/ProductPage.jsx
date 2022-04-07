@@ -4,33 +4,37 @@ import { MobileFilter } from '../../components/FilterSection/MobileFilter';
 import { usePagination } from '../../util/Pagination';
 import { useCartActions, useProductActions, useWishlistActions, useFilters } from '../../context';
 import { itemsPerPageProduct } from '../../util/data';
-import './product-page.css'
+import { toast } from 'react-toastify';
+import './product-page.css';
 
 const ProductPage = () => {
 
     const [ viewAlert, setViewAlert ] = useState(false);
-    const [ viewAlert1, setViewAlert1 ] = useState(false);
     const [ viewMobile, setViewMobile ] = useState(false);
     const { product } = useProductActions(); 
 	const { loader } = product;
     const { state: cart , addCart, matchUndo } = useCartActions();
-    const { productAdded } = cart;
-    const { state: wishlist , addWishlist, dispatch:wishlistDispatch } = useWishlistActions();
-
+    const { productAdded:productAddedCart } = cart;
+    const { state: wishlist , addWishlist, matchWishlistUndo } = useWishlistActions();
+    const { productAdded:productAddedWishlist } = wishlist;
     const{ inventoryData, state, dispatch } = useFilters();
 
     const handleOutOfStock = () => setViewAlert(true);
-    const closeAlert = () => setViewAlert(false) || setViewAlert1(false) || setViewMobile(false);
+    const closeAlert = () => setViewAlert(false) || setViewMobile(false);
 
     const { pageChange, prev, next, prevGrp, nextGrp, pageData, getPaginationGroup} = usePagination(inventoryData, itemsPerPageProduct);
     const handleChange = (e) => pageChange(e.target.value);
 
     useEffect( () => {
-        if(productAdded){
-            setViewAlert1(true);
+        if(productAddedCart){
+            toast.warning("Product added, change the quantity in cart page.");
             matchUndo();
         }
-    },[productAdded])
+        if(productAddedWishlist){
+            toast.warning("Product added to wishlist.");
+            matchWishlistUndo();
+        }
+    },[ productAddedCart, productAddedWishlist ])
 
     const Pagination = () => {
         return(
@@ -55,11 +59,10 @@ const ProductPage = () => {
             <FilterSection state={state} dispatch={dispatch}/>
             <section>
                 <section className="product-grid grid-4-cols"> 
-                    {viewAlert1 && <Alert customClass={'prdwarn'} action={'info'} closefn={closeAlert} title={'Product Added'} description={'Change the quantity in cart page.'}/>}
                     {viewAlert && <Alert customClass={'prdwarn'} action={'warning'} closefn={closeAlert} title={'Out of Stock'} description={'The product is currently out of stock'}/>}
                     { loader && <SpinLoader/>}
                     {pageData() && pageData().map((item) => (
-                        <ProductCard key={item._id} cardValue={item} addCart={addCart} addWishlist={addWishlist} handleOutOfStock={handleOutOfStock}/>
+                        <ProductCard key={item._id} cardValue={item} productAddedCart addCart={addCart} addWishlist={addWishlist} handleOutOfStock={handleOutOfStock}/>
                     ))}
                     {inventoryData.length === 0 ? <div className=' text3 medium font-color no-prd-text'>No Items Found</div> : ' ' }
                 </section>   

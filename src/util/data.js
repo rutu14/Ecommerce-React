@@ -51,3 +51,6 @@ export const deliveryCost = 20;
 export const itemsPerPageCart = 3;
 export const itemsPerPageProduct = 8;
 export const itemsPerPageWishlist = 10;
+
+export const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+export const passwordRegex =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;

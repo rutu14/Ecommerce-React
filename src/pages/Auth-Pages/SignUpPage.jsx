@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { useUserActions } from '../../context';
 import { Alert, DotsLoader } from '../../components';
+import { toast } from 'react-toastify';
 import './auth.css'
+import { emailRegex, passwordRegex } from '../../util/data';
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -12,14 +14,10 @@ const SignUpPage = () => {
     const [ viewAlert, setViewAlert ] = useState(false);
     const closeAlert = () => setViewAlert(false);
     const [ signupInputs, setSignupInputs ] = useState({ firstname: "" , lastname: "", email: "",password: "" })
-    console.log( signupInputs )
-    console.log( tokenPresent )
 
     useEffect(()=>{
         if( tokenPresent){
             setTimeout(() => {navigate('/')}, 0);
-            console.log('User signed in')
-            console.log(state)
         }
         if( signuperror ) {
             setViewAlert(true) 
@@ -35,7 +33,15 @@ const SignUpPage = () => {
     };
 
     const onSubmit = () =>{
-        signup( signupInputs.firstname, signupInputs.lastname, signupInputs.email, signupInputs.password)
+        if( signupInputs.firstname === "" || signupInputs.lastname === "" || signupInputs.email === "" || signupInputs.password === "" ){
+            toast.warning("Enter all the input values");
+        }else if( !signupInputs.email.match(emailRegex)){
+            toast.warning("Give valid email");
+        }else if( !signupInputs.password.match(passwordRegex)){
+            toast.warning(`Password Requirements: at least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number, Can contain special characters`);
+        }else{
+            signup( signupInputs.firstname, signupInputs.lastname, signupInputs.email, signupInputs.password)
+        }
     }
 
     return(        

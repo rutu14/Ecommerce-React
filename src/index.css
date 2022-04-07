@@ -19,6 +19,11 @@
     --font-color:var(--black);
     --mobile-nav-bg:var(--success-background);
 
+    --toastify-color-info: var(--info-text);
+    --toastify-color-success: var(--success-text);
+    --toastify-color-warning: var(--warning-text);
+    --toastify-color-error: var(--error-text);
+
     --site-name-font: 'Dekko', cursive;
 }
 
@@ -110,3 +115,8 @@ main{
     min-width: fit-content;
     background-color: var(--card-hover);
 }
+
+.Toastify__toast-body {
+    font-size: 2rem;
+}
+

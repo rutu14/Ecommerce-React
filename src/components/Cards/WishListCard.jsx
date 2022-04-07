@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const WishListCard = ({ addCart, deleteWishlist, wishlistValue }) => {
     const{
         _id,
@@ -14,11 +16,12 @@ const WishListCard = ({ addCart, deleteWishlist, wishlistValue }) => {
     const discount = Number((( price - salePrice ) / price ) * 100);
 
     const deleteWislistItem = () => {
-        deleteWishlist(_id)
+        deleteWishlist(_id);
     }
 
     const addtoCart = () => {
-        addCart( wishlistValue )
+        addCart( wishlistValue );
+        toast.info("Added to Cart");
     }
 
     return(                    

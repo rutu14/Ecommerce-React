@@ -73,6 +73,11 @@ input.login-input:focus{
     left: 32%;
 }
 
+.guest-login{
+    border: none;
+    margin: -13px 11rem;
+}
+
 @media only screen and (max-width: 600px){
     .loginerror {
         left: 9%;

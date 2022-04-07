@@ -129,8 +129,10 @@ export const updateCartItemHandler = function (schema, request) {
     } else if (action.type === "decrement") {
       userCart.forEach((product) => {
         if (product._id === productId) {
-          product.qty -= 1;
-          product.updatedAt = formatDate();
+          if (product.qty > 1) {
+            product.qty -= 1;
+            product.updatedAt = formatDate();
+          }
         }
       });
     }

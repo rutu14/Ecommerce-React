@@ -89,9 +89,9 @@ const CartProvider = ({ children }) => {
     const cartQty = state.cartInfo.reduce(( accumulator, cartProduct ) => ({
         ...accumulator,
         quantity: accumulator.quantity + cartProduct.qty 
-    }), { quantity: 0 })
+    }), { quantity: 0 });
 
-    const matchUndo = () => dispatch({ type: "CART_SUCCESS_MATCH_UNDO" })
+    const matchUndo = () => dispatch({ type: "CART_SUCCESS_MATCH_UNDO" });
 
     return <CartContext.Provider value={ { state, matchUndo, cartQty, getCart , addCart, deleteCart, addQty, subQty } }>
                 {children}

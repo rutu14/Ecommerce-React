@@ -1,5 +1,5 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import { useUserActions } from "../../context";
 
 const ProductCard = ({cardValue, addCart, addWishlist, handleOutOfStock}) => {   
@@ -9,17 +9,19 @@ const ProductCard = ({cardValue, addCart, addWishlist, handleOutOfStock}) => {
     
     const addtoCart = () => {
         if(tokenPresent){
-            addCart( cardValue )
+            addCart( cardValue );
+            toast.info("Adding to Cart");
         }else{
-            navigate('/login')
+            navigate('/login');
         }
     }
 
     const addtoWishlist = () => {
         if(tokenPresent){
-            addWishlist( cardValue )
+            addWishlist( cardValue );
+            toast.info("Adding to Wishlist");
         }else{
-            navigate('/login')
+            navigate('/login');
         }
     }
 

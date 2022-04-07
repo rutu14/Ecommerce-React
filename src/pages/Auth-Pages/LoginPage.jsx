@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { useUserActions } from '../../context';
 import { Alert, DotsLoader } from '../../components';
-import './auth.css'
+import './auth.css';
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const LoginPage = () => {
     const { loader, tokenPresent, loginerror, loginerrorMsg } = state;
     const [ viewAlert, setViewAlert ] = useState(false);
     const closeAlert = () => setViewAlert(false);
-    const [ loginInputs, setLoginInputs ] = useState({email:"rutz@gmail.com",password:"rutz"})
+    const [ loginInputs, setLoginInputs ] = useState({email:"",password:""});
 
     useEffect(()=>{
         if( tokenPresent){
@@ -22,6 +22,8 @@ const LoginPage = () => {
         } 
     },[ tokenPresent, loginerror])
     
+    const handleGuestLogin = () => setLoginInputs({email:"rutz@gmail.com",password:"rutz"});
+
     const handleChange = e => {
         const { name, value } = e.target;
         setLoginInputs(prevState => ({
@@ -30,9 +32,7 @@ const LoginPage = () => {
         }));
     };
 
-    const onSubmit = () =>{
-        login(loginInputs.email,loginInputs.password)
-    }
+    const onSubmit = () => login(loginInputs.email,loginInputs.password);     
 
     return(
         <main>
@@ -60,8 +60,8 @@ const LoginPage = () => {
                     }
 
                     <Link to={"/signup"} className="btn-link td text-center m-t10" role="button">Register Now</Link>
-
-                </form>                
+                </form>  
+                <button className="btn btn-link td text-center guest-login" onClick={handleGuestLogin} role="button">Guest Login</button>              
             </article>
         </section>
         </main>
