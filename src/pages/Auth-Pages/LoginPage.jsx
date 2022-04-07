@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { useUserActions } from '../../context';
 import { Alert, DotsLoader } from '../../components';
+import { toast } from 'react-toastify';
 import './auth.css';
 
 const LoginPage = () => {
@@ -32,7 +33,13 @@ const LoginPage = () => {
         }));
     };
 
-    const onSubmit = () => login(loginInputs.email,loginInputs.password);     
+    const onSubmit = () => {
+        if( loginInputs.email === "" || loginInputs.password === "" ){
+            toast.error("Provide credentials");
+        }else{
+            login(loginInputs.email,loginInputs.password);
+        }
+    }   
 
     return(
         <main>
