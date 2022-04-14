@@ -185,6 +185,7 @@ input[type=number] {
 .cart-action{
     flex-direction: column;
     grid-area: quantity;
+    padding-top: 3rem;
 }
 
 .card-primary-btn{
@@ -279,7 +280,7 @@ input[type=number] {
     
     .cart-card-img {
         width: 20rem;
-        height: auto;
+        height: 24.4rem;
     }
 
     .cart-section{
@@ -296,6 +297,11 @@ input[type=number] {
         overflow: hidden;
     }
 
+    .cart-card-subtitle{
+        width: 17rem;
+        height: 2rem;
+    }
+
     .cart-action-btn {
         font-size: 1.4rem;
         width: 18rem;
@@ -310,6 +316,7 @@ input[type=number] {
     .cart-action {
         justify-content: flex-start;
         padding: 2rem;
+        margin-top: 5.6rem;
     }
 
     .quantity-inp {
@@ -323,7 +330,7 @@ input[type=number] {
     }
 
     .product-rating-cart {
-        transform: translate(13.3rem, 23rem);
+        transform: translate(13.3rem, 20rem);
         z-index: 3;
     }
 

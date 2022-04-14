@@ -45,14 +45,14 @@ const CartCard = ({ deleteCart, addQty, subQty, addWishlist, cartValue }) => {
             
             <section className="cart-section">
                 <div className="card-body card-content">
-                    <div className="card-title-box font-color">
+                    <div className="card-title-box cart-card-width font-color">
                         <h2 className="card-title medium">{brand}</h2>
-                        <h3 className="card-subtitle medium">{title}</h3>
+                        <h3 className="card-subtitle cart-card-subtitle medium">{title}</h3>
                     </div>
                     <div className="card-content text4 font-color">
                         {onSale 
                             ? (<>
-                                <span className="font-color">Price: </span>
+                                <span className="medium font-color">Price: </span>
                                 <span className="sale-price">{prdPrice}</span>
                                 <span>{onSalePrice}</span>
                                 </>)    
