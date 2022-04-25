@@ -22,8 +22,11 @@ const NavLinks = ( { avatarName } ) => {
 
     const ShowDropdown = () => {
         return(
-            <div id="dropdown" className="dropdown-menu generatecssdotcom_arrow">
-                <Link to={'/'} className="btn-link cp td text-center m-t10" role="button" onClick={signout}>
+            <div id="dropdown" className="dropdown-menu">
+                <Link to={'profile'} className="btn-link cp td text-center dropdown-links" role="button">
+                    Profile
+                </Link>
+                <Link to={'/'} className="btn-link cp td text-center dropdown-links" role="button" onClick={signout}>
                     Logout
                 </Link>
             </div>        

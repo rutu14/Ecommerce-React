@@ -1,12 +1,12 @@
 import Mockman from 'mockman-js';
 import { Route, Routes } from 'react-router';
 import { Navigation } from './components';
-import { CartPage, LandingPage, LoginPage, ProductPage, SignUpPage, WishlistPage } from './pages';
+import { AddressSection, CartPage, LandingPage, LoginPage, ProductPage, SignUpPage, UserPage, WishlistPage } from './pages';
 import { ToastContainer } from 'react-toastify';
+import { PrivateRoute } from './util/PrivateRoute';
 
 function App() {
 	const storedTheme = localStorage.getItem("theme");
-  	
 	return (
 		<>
 			<Navigation />
@@ -21,6 +21,11 @@ function App() {
 				<Route path='product/:categoryName' element={<ProductPage/>}/>
 				<Route path='*' element={<LandingPage/>}/>
 				<Route path='mock' element={<Mockman/>}/>
+				<Route element={<PrivateRoute/>}>
+					<Route path='profile' element={<UserPage/>}>
+						<Route path='address' element={<AddressSection/>}/>
+					</Route>
+				</Route>				
 			</Routes>
 			<ToastContainer theme={storedTheme} position="bottom-center" autoClose={2000} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover/>
 		</>

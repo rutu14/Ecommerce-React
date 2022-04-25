@@ -54,3 +54,150 @@ export const itemsPerPageWishlist = 10;
 
 export const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 export const passwordRegex =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+export const stateNames = [
+    {
+      shortName: "AN",
+      stateName: "Andaman and Nicobar Islands"
+    },
+    {
+      shortName: "AP",
+      stateName: "Andhra Pradesh"
+    },
+    {
+      shortName: "AR",
+      stateName: "Arunachal Pradesh"
+    },
+    {
+      shortName: "AS",
+      stateName: "Assam"
+    },
+    {
+      shortName: "BR",
+      stateName: "Bihar"
+    },
+    {
+      shortName: "CG",
+      stateName: "Chandigarh"
+    },
+    {
+      shortName: "CH",
+      stateName: "Chhattisgarh"
+    },
+    {
+      shortName: "DH",
+      stateName: "Dadra and Nagar Haveli"
+    },
+    {
+      shortName: "DD",
+      stateName: "Daman and Diu"
+    },
+    {
+      shortName: "DL",
+      stateName: "Delhi"
+    },
+    {
+      shortName: "GA",
+      stateName: "Goa"
+    },
+    {
+      shortName: "GJ",
+      stateName: "Gujarat"
+    },
+    {
+      shortName: "HR",
+      stateName: "Haryana"
+    },
+    {
+      shortName: "HP",
+      stateName: "Himachal Pradesh"
+    },
+    {
+      shortName: "JK",
+      stateName: "Jammu and Kashmir"
+    },
+    {
+      shortName: "JH",
+      stateName: "Jharkhand"
+    },
+    {
+      shortName: "KA",
+      stateName: "Karnataka"
+    },
+    {
+      shortName: "KL",
+      stateName: "Kerala"
+    },
+    {
+      shortName: "LD",
+      stateName: "Lakshadweep"
+    },
+    {
+      shortName: "MP",
+      stateName: "Madhya Pradesh"
+    },
+    {
+      shortName: "MH",
+      stateName: "Maharashtra"
+    },
+    {
+      shortName: "MN",
+      stateName: "Manipur"
+    },
+    {
+      shortName: "ML",
+      stateName: "Meghalaya"
+    },
+    {
+      shortName: "MZ",
+      stateName: "Mizoram"
+    },
+    {
+      shortName: "NL",
+      stateName: "Nagaland"
+    },
+    {
+      shortName: "OR",
+      stateName: "Odisha"
+    },
+    {
+      shortName: "PY",
+      stateName: "Puducherry"
+    },
+    {
+      shortName: "PB",
+      stateName: "Punjab"
+    },
+    {
+      shortName: "RJ",
+      stateName: "Rajasthan"
+    },
+    {
+      shortName: "SK",
+      stateName: "Sikkim"
+    },
+    {
+      shortName: "TN",
+      stateName: "Tamil Nadu"
+    },
+    {
+      shortName: "TS",
+      stateName: "Telangana"
+    },
+    {
+      shortName: "TR",
+      stateName: "Tripura"
+    },
+    {
+      shortName: "UP",
+      stateName: "Uttar Pradesh"
+    },
+    {
+      shortName: "UK",
+      stateName: "Uttarakhand"
+    },
+    {
+      shortName: "WB",
+      stateName: "West Bengal"
+    }
+  ];
