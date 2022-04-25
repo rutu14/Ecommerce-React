@@ -13,6 +13,11 @@ export const linkMobileNames = [{
     link: 'Wishlist ',
     icon: 'bi bi-heart',
     route: 'wishlist'
+},{
+  id:4,
+  link: 'Profile ',
+  icon: 'bi bi-person',
+  route: 'profile'
 }];
 
 export const linkNames = [{
