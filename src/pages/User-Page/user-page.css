@@ -1,0 +1,243 @@
+.modal-backdrop{
+    visibility: visible;
+    opacity: 1;
+    z-index: 4;
+}
+
+.profile-grid{
+    display: grid;
+    justify-items: center;
+    padding: 4rem;
+    background-color: var(--user-profile-bg);
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 3px 6px 10px var(--user-profile-shadow);
+}
+
+.user-profile-actions{
+    width: 100%;
+}
+
+.creds-section{
+    width: 35%;
+}
+
+.value-section{
+    display: flex;
+    color: var(--user-name-text);
+    justify-content: space-between;
+}
+
+.divider{
+    stroke: var(--user-name-text); 
+    stroke-width: 2;
+    stroke-dasharray: 14,10;
+}
+
+.btn-section{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-btn{
+    background-color: var(--user-profile-bg);
+    color: var(--user-name-text);
+    border-color: var(--user-name-text);
+}
+
+.user-btn:hover{
+    background: var(--user-btn-hover);
+    color: var(--user-btn-hover-text,var(--black));
+}
+
+.address-form{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 85% 15%;
+    grid-template-areas:
+        "section1 section2"
+        "btn-section btn-section";
+    justify-items: center;
+    width: 80%;
+    height: 40rem;
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--user-profile-bg);
+    border-radius: 10px;
+    box-shadow: 3px 6px 10px var(--user-profile-shadow);
+    box-shadow: -2px 1px 10px var(--user-profile-shadow);
+}
+
+.address-section1, .address-section2{
+    padding: 0 2rem;
+    width: 90%;
+    display: grid;
+}
+
+.address-section1{
+    grid-area: section1;
+}
+
+.address-section2{
+    grid-area: section2;
+}
+
+.btns-section{
+    grid-area:btn-section;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.add-btn{
+    width: 20%;
+}
+
+.address-input{
+    height: 3.5rem;
+    background-color: var(--address-input-bg);
+}
+
+.address-input:disabled{
+    background-color: var(--address-input-disabled);
+}
+
+.required-mark{
+    padding-left: 3px;
+    color: var(--required-mark);
+}
+
+select.login-input:focus {
+    box-shadow: unset;
+    border: 1px solid var(--black);
+    outline: 1px solid var(--input-border);
+}
+
+.option-box{
+    background: var(--address-select);
+    color: var(--font-color);
+    font-size: 1.6rem;
+}
+
+.address-card{
+    width: 100%;
+    padding: 1.3rem 1.5rem;
+    color: var(--user-name-text);
+    display: grid;
+    height: 24rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-btn{
+    border: none;
+    border-bottom: 5px dotted var(--user-name-text);
+    background-color: var(--address-select);
+    transform: translateY(-10.2rem);
+    width: 2rem;
+    height: 0rem;
+    position: absolute;
+}
+
+.actions-dropdown{
+    position: absolute;
+    transform: translate(-1rem,-4.6rem);
+    border: 1px solid var(--white);
+    padding: 7px;
+    background-color: var(--user-profile-shadow);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.actions-dropdown:after, .actions-dropdown:before {
+    bottom : 100%; 
+    left : 19%;
+    border:1px solid transparent; 
+    content: ' '; 
+    position: absolute; 
+} 
+
+.actions-dropdown:before {
+    border-bottom-color: var(--white);
+    border-width: 6px; 
+    margin-left: -6px;
+    margin-bottom: 1px;
+}
+
+.actions-dropdown:after {
+    border-bottom-color: var(--user-profile-shadow);
+    border-width: 5.8px; 
+    margin-left: -5.8px; 
+} 
+
+.nick-name{
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+.address-card-text{
+    width: 100%;
+}
+
+.no-value{
+    display: none;
+}
+
+.modal-form{
+    width: fit-content;
+    background-color: var(--address-select);
+}
+
+.form-modal{
+    width: 100%;
+    margin: unset;
+}
+
+@media only screen and (max-width: 600px) {
+    .creds-section{
+        width: 100%;
+    }
+
+    .add-btn{
+    width: 40%;
+    font-size: 1.6rem;
+    }
+
+    .btns-section {
+        width: 100%;
+        height: 7rem;
+    }
+
+    .address-section1, .address-section2 {
+        padding: 0;
+        width: 100%;
+    }
+
+    .address-form{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 7rem;
+        grid-template-areas:
+            "section1"
+            "section2"
+            "btn-section";
+        height: 75rem;
+        width: auto;
+        padding: 2.5rem;
+    }
+
+    .profile-grid{
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .mobile-font{
+        font-size: 1.8rem;
+    }
+
+    .btn-section {
+        width: 100%;
+    }
+}
