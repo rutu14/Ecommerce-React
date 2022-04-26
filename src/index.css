@@ -16,8 +16,16 @@
     --promosucess: #0b970b;
     --promoerror:#cc1a1a;
     --card-subtitle: #0000008a;
-    --font-color:var(--black);
-    --mobile-nav-bg:var(--success-background);
+    --font-color: var(--black);
+    --mobile-nav-bg: var(--success-background);
+    --user-profile-bg:#e0e7fa;
+    --user-profile-shadow:#acb5cd;
+    --user-name-text:#817f75;
+    --user-btn-hover: var(--btn-hover);
+    --address-input-bg:#fcfdff3d;
+    --address-input-disabled: #cfdcffd6;   
+    --required-mark:#dc5d5f;
+    --address-select:#c0cdf4b5;
 
     --toastify-color-info: var(--info-text);
     --toastify-color-success: var(--success-text);
@@ -50,6 +58,18 @@
     --login-box:#1a1b1c63;
     --minor-line-border:#35353a;
     --btn-link-hover:#aa9bb8;
+    --dropdown-bg:#1a1c22;
+    --dropdown-shadow:#131315;
+    --dropdown-menu-text: var(--input-border);
+    --user-profile-bg:#e0e7fa17;
+    --user-profile-shadow:#292725;
+    --user-name-text: var(--warning-background);
+    --user-btn-hover:#f8edd8;
+    --user-btn-hover-text: var(--info-text);
+    --modal-dialog:#212025;
+    --address-input-bg:#1e1e1f30;
+    --address-input-disabled: #1e2123;
+    --address-select:#44454c;
 }
 
 [data-theme="dark"] img {
